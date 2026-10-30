@@ -1,4 +1,12 @@
+import { useCatalog } from '../context/catalogContext';
+
 export default function Contact() {
+  const { settings } = useCatalog();
+  // Real profile links come from the settings row; until they're filled in, link to the sites themselves.
+  const instagramUrl = settings.instagram_url || 'https://www.instagram.com/';
+  const facebookUrl = settings.facebook_url || 'https://www.facebook.com/';
+  const instagramName = instagramUrl.match(/instagram\.com\/([^/?#]+)/)?.[1];
+
   return (
     <section className="contact-section" id="contact">
       <div className="contact-container reveal">
@@ -10,7 +18,7 @@ export default function Contact() {
         </p>
         <div className="social-links">
           <a
-            href="https://www.instagram.com/"
+            href={instagramUrl}
             className="social-card"
             target="_blank"
             rel="noopener noreferrer"
@@ -22,13 +30,13 @@ export default function Contact() {
             </div>
             <div className="social-info">
               <span className="social-platform">Instagram</span>
-              <span className="social-handle">@pinecone.art</span>
+              <span className="social-handle">@{instagramName ?? 'pinecone.art'}</span>
               <span className="social-cta">Follow our journey &rarr;</span>
             </div>
           </a>
 
           <a
-            href="https://www.facebook.com/"
+            href={facebookUrl}
             className="social-card"
             target="_blank"
             rel="noopener noreferrer"

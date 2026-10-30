@@ -1,21 +1,27 @@
-import { useState, useRef, useEffect } from 'react';
-import { galleryItems } from '../data/galleryData';
+import { useState, useRef, useEffect, useMemo } from 'react';
+import { useCatalog } from '../context/catalogContext';
+import { priceLabel } from '../lib/catalog';
 import Lightbox from './Lightbox';
 
-const FILTERS = [
-  { label: 'All Pieces', value: 'all' },
-  { label: 'Framed Art', value: 'framed' },
-  { label: 'Wreaths & Shapes', value: 'wreath' },
-  { label: 'Standing Pieces', value: 'standing' },
-];
+const STATUS_BADGES = { reserved: 'Reserved', sold: 'Sold' };
 
 export default function Gallery() {
+  const { status, categories, pieces, settings } = useCatalog();
   const [activeFilter, setActiveFilter] = useState('all');
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const cardRefs = useRef([]);
 
-  const visibleItems = galleryItems.filter(
-    (item) => activeFilter === 'all' || item.category === activeFilter
+  // Only offer categories that have something to show.
+  const filters = [
+    { label: 'All Pieces', value: 'all' },
+    ...categories
+      .filter((category) => pieces.some((piece) => piece.category === category.slug))
+      .map((category) => ({ label: category.name, value: category.slug })),
+  ];
+
+  const visibleItems = useMemo(
+    () => pieces.filter((piece) => activeFilter === 'all' || piece.category === activeFilter),
+    [pieces, activeFilter]
   );
 
   useEffect(() => {
@@ -31,18 +37,14 @@ export default function Gallery() {
     return () => observer.disconnect();
   }, [visibleItems]);
 
-  const openLightbox = (index) => {
-    const globalIndex = galleryItems.findIndex((item) => item.id === visibleItems[index].id);
-    setLightboxIndex(globalIndex);
-  };
-
   const closeLightbox = () => setLightboxIndex(null);
 
+  // The arrows stay within the current filter.
   const nextImage = () =>
-    setLightboxIndex((i) => (i + 1) % galleryItems.length);
+    setLightboxIndex((i) => (i + 1) % visibleItems.length);
 
   const prevImage = () =>
-    setLightboxIndex((i) => (i - 1 + galleryItems.length) % galleryItems.length);
+    setLightboxIndex((i) => (i - 1 + visibleItems.length) % visibleItems.length);
 
   return (
     <section className="gallery-section" id="gallery">
@@ -56,7 +58,7 @@ export default function Gallery() {
       </div>
 
       <div className="filter-bar">
-        {FILTERS.map((f) => (
+        {filters.map((f) => (
           <button
             key={f.value}
             className={`filter-btn${activeFilter === f.value ? ' active' : ''}`}
@@ -67,25 +69,46 @@ export default function Gallery() {
         ))}
       </div>
 
+      {status === 'loading' && <p className="gallery-message">Loading the collection…</p>}
+      {status === 'error' && (
+        <p className="gallery-message">
+          The collection couldn&apos;t be loaded right now. Please refresh the page in a moment.
+        </p>
+      )}
+
       <div className="gallery-grid">
-        {visibleItems.map((item, i) => (
+        {visibleItems.map((piece, i) => (
           <div
-            key={item.id}
+            key={piece.id}
             className="gallery-item reveal"
             ref={(el) => (cardRefs.current[i] = el)}
           >
             <div className="gallery-card">
-              <div className="gallery-img-wrapper">
-                <img src={item.src} alt={item.alt} loading="lazy" />
-                <div className="gallery-overlay">
-                  <button className="view-btn" onClick={() => openLightbox(i)}>
-                    View
-                  </button>
-                </div>
-              </div>
+              <button
+                type="button"
+                className="gallery-img-wrapper"
+                onClick={() => setLightboxIndex(i)}
+                aria-label={`View ${piece.title}`}
+              >
+                <img src={piece.photos[0].src} alt={piece.photos[0].alt} loading="lazy" />
+                {STATUS_BADGES[piece.status] && (
+                  <span className={`status-badge status-${piece.status}`}>
+                    {STATUS_BADGES[piece.status]}
+                  </span>
+                )}
+                <span className="gallery-overlay" aria-hidden="true">
+                  <span className="view-btn">View</span>
+                </span>
+              </button>
               <div className="gallery-info">
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
+                <h3>{piece.title}</h3>
+                <p>{piece.description}</p>
+                <p className="gallery-price">
+                  {priceLabel(piece, settings.currency)}
+                  {piece.status === 'sold' && (
+                    <a href="#contact" className="similar-link">Ask for one like it</a>
+                  )}
+                </p>
               </div>
             </div>
           </div>
@@ -94,8 +117,9 @@ export default function Gallery() {
 
       {lightboxIndex !== null && (
         <Lightbox
-          images={galleryItems}
+          pieces={visibleItems}
           currentIndex={lightboxIndex}
+          currency={settings.currency}
           onClose={closeLightbox}
           onNext={nextImage}
           onPrev={prevImage}

@@ -8,7 +8,7 @@ export default function Hero() {
           Nature Transformed<br />Into Art
         </h1>
         <p className="hero-description">
-          Each piece is uniquely crafted from pinecones, transforming nature's gifts into
+          Each piece is uniquely crafted from pinecones, transforming nature&apos;s gifts into
           stunning floral arrangements and decorative art.
         </p>
         <a href="#gallery" className="hero-btn">

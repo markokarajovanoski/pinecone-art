@@ -363,10 +363,19 @@ button {
   transform: translateY(-6px);
 }
 
+/* A button, so tapping the photo opens the lightbox on phones too */
 .gallery-img-wrapper {
   position: relative;
+  display: block;
+  width: 100%;
   overflow: hidden;
   aspect-ratio: 4/5;
+  cursor: zoom-in;
+}
+
+.gallery-img-wrapper:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: -3px;
 }
 
 .gallery-img-wrapper img {
@@ -391,11 +400,13 @@ button {
   transition: opacity var(--transition);
 }
 
-.gallery-card:hover .gallery-overlay {
+.gallery-card:hover .gallery-overlay,
+.gallery-img-wrapper:focus-visible .gallery-overlay {
   opacity: 1;
 }
 
 .view-btn {
+  display: inline-block;
   padding: 0.7rem 2rem;
   background: rgba(255,255,255,0.95);
   color: var(--color-text);
@@ -415,6 +426,31 @@ button {
   box-shadow: var(--shadow-sm);
 }
 
+.status-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1;
+  padding: 0.3rem 0.85rem;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: var(--color-warm);
+}
+
+.status-badge.status-sold {
+  background: var(--color-bg-dark);
+}
+
+.gallery-message {
+  text-align: center;
+  color: var(--color-text-light);
+  margin-bottom: 2rem;
+}
+
 .gallery-info {
   padding: 1.25rem 1.5rem;
 }
@@ -430,6 +466,22 @@ button {
   font-size: 0.85rem;
   color: var(--color-text-light);
   line-height: 1.5;
+}
+
+.gallery-info .gallery-price {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-accent-dark);
+}
+
+.similar-link {
+  margin-left: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-teal);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 /* ===== About Section ===== */
@@ -747,6 +799,14 @@ button {
   font-size: 0.9rem;
   margin-top: 1rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.lightbox-price {
+  color: var(--color-accent-light);
+  font-weight: 600;
 }
 
 .lightbox-close {

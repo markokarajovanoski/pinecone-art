@@ -8,7 +8,7 @@ export default function Delivery() {
           <p className="delivery-text">
             We deliver all of our handcrafted pieces safely across the country through{' '}
             <strong>Kargo</strong>. Every order is carefully packaged to ensure your artwork
-            arrives in perfect condition. Fast, reliable, and trackable — we've got your
+            arrives in perfect condition. Fast, reliable, and trackable — we&apos;ve got your
             piece covered from our studio to your door.
           </p>
         </div>

@@ -7,7 +7,7 @@ export default function Footer() {
           <span>Pinecone Art</span>
         </div>
         <p className="footer-text">
-          &copy; 2026 Pinecone Art. All rights reserved. Handcrafted with love.
+          &copy; {new Date().getFullYear()} Pinecone Art. All rights reserved. Handcrafted with love.
         </p>
       </div>
     </footer>

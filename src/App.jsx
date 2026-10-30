@@ -6,6 +6,7 @@ import About from './components/About';
 import Delivery from './components/Delivery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import CatalogProvider from './context/CatalogProvider';
 
 export default function App() {
   useEffect(() => {
@@ -23,7 +24,7 @@ export default function App() {
   }, []);
 
   return (
-    <>
+    <CatalogProvider>
       <Navbar />
       <Hero />
       <Gallery />
@@ -31,6 +32,6 @@ export default function App() {
       <Delivery />
       <Contact />
       <Footer />
-    </>
+    </CatalogProvider>
   );
 }
