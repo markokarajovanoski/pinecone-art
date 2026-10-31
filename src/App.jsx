@@ -6,6 +6,7 @@ import Delivery from './components/Delivery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CatalogProvider from './context/CatalogProvider';
+import CustomOrderProvider from './context/CustomOrderProvider';
 import LanguageProvider from './i18n/LanguageProvider';
 import useRevealOnScroll from './hooks/useRevealOnScroll';
 
@@ -15,13 +16,15 @@ export default function App() {
   return (
     <LanguageProvider>
       <CatalogProvider>
-        <Navbar />
-        <Hero />
-        <Gallery />
-        <About />
-        <Delivery />
-        <Contact />
-        <Footer />
+        <CustomOrderProvider>
+          <Navbar />
+          <Hero />
+          <Gallery />
+          <About />
+          <Delivery />
+          <Contact />
+          <Footer />
+        </CustomOrderProvider>
       </CatalogProvider>
     </LanguageProvider>
   );

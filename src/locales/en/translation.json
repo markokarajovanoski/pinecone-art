@@ -189,5 +189,90 @@
       "shipping_fee": "Delivery price",
       "banner_text": "Notice for visitors"
     }
+  },
+  "custom": {
+    "title": "Your own piece",
+    "step": "Step {n} of {total}",
+    "back": "← Back",
+    "next": "Next",
+    "q": {
+      "type": "What would you like?",
+      "colors": "Which colours?",
+      "size": "What size?",
+      "extras": "Anything else? (optional)",
+      "send": "Check and send"
+    },
+    "type": {
+      "framed": "Picture in a frame",
+      "wreath": "Wreath",
+      "standing": "Standing piece",
+      "heart": "Heart"
+    },
+    "palette": {
+      "same": "Same colours as “{title}”",
+      "pink": "Pink & white",
+      "autumn": "Autumn colours",
+      "blue": "Blue & purple",
+      "jewel": "Teal, gold & burgundy",
+      "silver": "Silver & teal",
+      "natural": "Natural & gold",
+      "christmas": "Christmas",
+      "custom": "Pick my own colours"
+    },
+    "size": {
+      "small": "Small",
+      "medium": "Medium",
+      "large": "Large"
+    },
+    "from": "from {price}",
+    "extras": {
+      "occasion": "Occasion",
+      "message": "Words to write on it",
+      "messageHint": "e.g. a name or a short wish",
+      "deadline": "Needed by",
+      "note": "Anything else we should know?",
+      "photoTip": "Have a photo for inspiration? Send it in the chat after your message."
+    },
+    "occasion": {
+      "none": "No particular occasion",
+      "birthday": "Birthday",
+      "wedding": "Wedding",
+      "womensDay": "8 March",
+      "christmas": "Christmas / New Year",
+      "other": "Something else"
+    },
+    "name": "Your name",
+    "summary": {
+      "type": "Type",
+      "colors": "Colours",
+      "size": "Size",
+      "occasion": "Occasion",
+      "message": "Words on it",
+      "deadline": "Needed by",
+      "note": "Note",
+      "name": "Name"
+    },
+    "message": {
+      "intro": "Hello! I’d like to order a piece of my own:",
+      "likeThis": "Similar to: {title}"
+    },
+    "sendHint": "Tap a button: your message is already written, just press send.",
+    "pickHint": "Tap up to {max} colours",
+    "color": {
+      "pink": "Pink",
+      "red": "Red",
+      "burgundy": "Burgundy",
+      "orange": "Orange",
+      "yellow": "Yellow",
+      "gold": "Gold",
+      "white": "White",
+      "silver": "Silver",
+      "teal": "Teal",
+      "blue": "Blue",
+      "purple": "Purple",
+      "green": "Green",
+      "brown": "Brown",
+      "black": "Black"
+    }
   }
 }
