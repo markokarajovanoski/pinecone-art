@@ -134,6 +134,7 @@
       "error": "Wrong email or password."
     },
     "tabs": {
+      "orders": "Orders",
       "pieces": "Pieces",
       "settings": "Settings"
     },
@@ -188,6 +189,63 @@
       "currency": "Currency (e.g. MKD)",
       "shipping_fee": "Delivery price",
       "banner_text": "Notice for visitors"
+    },
+    "orders": {
+      "add": "+ New order",
+      "empty": "No orders here.",
+      "noAddress": "No address yet",
+      "done": "Delivered ✓",
+      "filter": {
+        "active": "Active",
+        "new": "New",
+        "confirmed": "Being made",
+        "shipped": "Shipped",
+        "delivered": "Delivered",
+        "cancelled": "Cancelled",
+        "all": "All"
+      },
+      "status": {
+        "new": "New",
+        "confirmed": "Being made",
+        "shipped": "Shipped",
+        "delivered": "Delivered",
+        "cancelled": "Cancelled"
+      },
+      "to": {
+        "confirmed": "Confirm – start making it",
+        "shipped": "Mark as shipped",
+        "delivered": "Mark as delivered"
+      },
+      "tracking": "Kargo tracking number",
+      "trackingShown": "Tracking: {number}",
+      "cancel": "Cancel order",
+      "cancelConfirm": "Cancel the order from {name}?",
+      "reopen": "Reopen as new",
+      "delete": "Delete",
+      "deleteConfirm": "Delete the order from {name}? This can’t be undone.",
+      "payment": {
+        "cash_on_delivery": "Cash on delivery",
+        "bank_transfer": "Bank transfer"
+      }
+    },
+    "orderForm": {
+      "title": "New order",
+      "name": "Name",
+      "phone": "Phone",
+      "design": "Design from the gallery",
+      "noDesign": "— Custom order (describe below) —",
+      "quantity": "How many",
+      "details": "What to make",
+      "detailsHint": "colours, size, words to write…",
+      "price": "Agreed price (MKD)",
+      "priceHint": "Empty uses the design’s price × how many.",
+      "payment": "Payment",
+      "city": "City",
+      "postalCode": "Postal code",
+      "address": "Address",
+      "note": "Note",
+      "save": "Save order",
+      "required": "Please enter a name and a phone number."
     }
   },
   "custom": {

@@ -1,14 +1,16 @@
 import { useLanguage } from '../../i18n/languageContext';
 import LanguageSwitch from '../../components/LanguageSwitch';
 import Login from '../Login';
+import OrderManager from '../OrderManager';
 import PieceManager from '../PieceManager';
 import SettingsEditor from '../SettingsEditor';
 
-const TABS = ['pieces', 'settings'];
+const TABS = { orders: OrderManager, pieces: PieceManager, settings: SettingsEditor };
 
 /** @param {import('./AdminApp.props').AdminAppViewProps} props */
 export default function AdminAppView({ state, email, tab, onSelectTab, onSignOut }) {
   const { t } = useLanguage();
+  const TabContent = TABS[tab];
 
   return (
     <div className="admin">
@@ -33,7 +35,7 @@ export default function AdminAppView({ state, email, tab, onSelectTab, onSignOut
         {state === 'admin' && (
           <>
             <nav className="admin-tabs">
-              {TABS.map((id) => (
+              {Object.keys(TABS).map((id) => (
                 <button
                   key={id}
                   type="button"
@@ -44,7 +46,7 @@ export default function AdminAppView({ state, email, tab, onSelectTab, onSignOut
                 </button>
               ))}
             </nav>
-            {tab === 'pieces' ? <PieceManager /> : <SettingsEditor />}
+            <TabContent />
             <footer className="admin-footer">
               <span className="admin-muted">{email}</span>
               <a href="/" className="admin-link">{t('admin.viewSite')}</a>

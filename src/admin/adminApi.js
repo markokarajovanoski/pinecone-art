@@ -127,6 +127,53 @@ export async function makeCover(piece, photoId) {
   }
 }
 
+// ─── Orders ─────────────────────────────────────────────────────────────────
+
+export async function fetchOrders() {
+  const supabase = await getSupabase();
+  const rows = check(
+    await supabase
+      .from('orders')
+      .select(
+        'id, status, customer_name, phone, city, address, postal_code, note, details, payment_method, items_total, tracking_number, created_at, items:order_items(piece_id, quantity, price, piece:pieces(title, photos:piece_photos(path, position)))'
+      )
+      .order('created_at', { ascending: false })
+  );
+  return rows.map((order) => ({
+    ...order,
+    items: order.items.map((item) => {
+      const cover = [...(item.piece?.photos ?? [])].sort((a, b) => a.position - b.position)[0];
+      return { ...item, title: item.piece?.title ?? '', photo: cover ? photoUrl(supabase, cover.path) : null };
+    }),
+  }));
+}
+
+// Designs the family can attach to an order they record by hand.
+export async function fetchDesigns() {
+  const supabase = await getSupabase();
+  return check(
+    await supabase.from('pieces').select('id, title, price').neq('status', 'draft').order('sort_order')
+  );
+}
+
+// Records an order taken by chat or phone; `item` is the gallery design, if any.
+export async function createOrder(fields, item) {
+  const supabase = await getSupabase();
+  const order = check(await supabase.from('orders').insert(fields).select('id').single());
+  if (item) check(await supabase.from('order_items').insert({ order_id: order.id, ...item }));
+  return order;
+}
+
+export async function updateOrder(id, fields) {
+  const supabase = await getSupabase();
+  check(await supabase.from('orders').update(fields).eq('id', id));
+}
+
+export async function deleteOrder(id) {
+  const supabase = await getSupabase();
+  check(await supabase.from('orders').delete().eq('id', id));
+}
+
 // ─── Settings ───────────────────────────────────────────────────────────────
 
 export const SETTINGS_FIELDS = [

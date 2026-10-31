@@ -6,7 +6,7 @@ import AdminAppView from './AdminApp.view';
 export default function AdminApp() {
   const [session, setSession] = useState(undefined); // undefined while checking
   const [admin, setAdmin] = useState(null); // null while checking
-  const [tab, setTab] = useState('pieces');
+  const [tab, setTab] = useState('orders');
 
   useEffect(() => {
     if (!isSupabaseConfigured) return undefined;

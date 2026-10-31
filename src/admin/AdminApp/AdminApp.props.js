@@ -7,7 +7,7 @@
  * @typedef {object} AdminAppViewProps
  * @property {AdminState} state
  * @property {string | undefined} email  the signed-in account
- * @property {'pieces' | 'settings'} tab
- * @property {(tab: 'pieces' | 'settings') => void} onSelectTab
+ * @property {'orders' | 'pieces' | 'settings'} tab
+ * @property {(tab: 'orders' | 'pieces' | 'settings') => void} onSelectTab
  * @property {() => void} onSignOut
  */
