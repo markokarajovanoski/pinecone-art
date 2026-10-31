@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useCatalog } from '../../context/catalogContext';
+import { socialLinks } from '../../lib/social';
 import NavbarView from './Navbar.view';
 import { NAV_SECTIONS } from './Navbar.props';
 
 export default function Navbar() {
+  const { settings } = useCatalog();
+  const { instagramUrl, facebookUrl } = socialLinks(settings);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -36,6 +40,8 @@ export default function Navbar() {
       menuOpen={menuOpen}
       activeSection={activeSection}
       sections={NAV_SECTIONS}
+      instagramUrl={instagramUrl}
+      facebookUrl={facebookUrl}
       onToggleMenu={() => setMenuOpen((open) => !open)}
       onNavigate={() => setMenuOpen(false)}
     />

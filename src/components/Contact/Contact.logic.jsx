@@ -1,13 +1,10 @@
 import { useCatalog } from '../../context/catalogContext';
+import { socialLinks } from '../../lib/social';
 import ContactView from './Contact.view';
-import { DEFAULT_INSTAGRAM_HANDLE, FACEBOOK_HOME, INSTAGRAM_HOME } from './Contact.props';
 
 export default function Contact() {
   const { settings } = useCatalog();
-  const instagramUrl = settings.instagram_url || INSTAGRAM_HOME;
-  const facebookUrl = settings.facebook_url || FACEBOOK_HOME;
-  const instagramHandle =
-    instagramUrl.match(/instagram\.com\/([^/?#]+)/)?.[1] ?? DEFAULT_INSTAGRAM_HANDLE;
+  const { instagramUrl, instagramHandle, facebookUrl } = socialLinks(settings);
 
   return (
     <ContactView

@@ -7,6 +7,8 @@ export const NAV_SECTIONS = ['home', 'gallery', 'about', 'contact'];
  * @property {boolean} menuOpen  the mobile menu is open
  * @property {string} activeSection  id of the section currently in view
  * @property {string[]} sections  section ids to link to
+ * @property {string} instagramUrl
+ * @property {string} facebookUrl
  * @property {() => void} onToggleMenu
  * @property {() => void} onNavigate  a menu link was clicked
  */
