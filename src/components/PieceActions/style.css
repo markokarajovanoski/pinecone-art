@@ -35,3 +35,18 @@
 .share-btn:focus-visible {
   background: var(--color-accent-light);
 }
+
+/* "I'd like this, in my colours" — opens the custom-order flow from this piece */
+.custom-like-btn {
+  flex: 1 1 100%;
+  min-height: 44px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lightbox-actions .custom-like-btn {
+  color: var(--color-accent-light);
+}

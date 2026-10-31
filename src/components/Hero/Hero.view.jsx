@@ -1,8 +1,10 @@
+import { useCustomOrder } from '../../context/customOrderContext';
 import { useLanguage } from '../../i18n/languageContext';
 import './style.css';
 
 export default function HeroView() {
   const { t } = useLanguage();
+  const openCustomOrder = useCustomOrder();
 
   return (
     <section className="hero" id="home">
@@ -13,9 +15,14 @@ export default function HeroView() {
           {t('hero.title1')}<br />{t('hero.title2')}
         </h1>
         <p className="hero-description">{t('hero.description')}</p>
-        <a href="#gallery" className="hero-btn">
-          {t('hero.button')}
-        </a>
+        <div className="hero-buttons">
+          <a href="#gallery" className="hero-btn">
+            {t('hero.button')}
+          </a>
+          <button type="button" className="hero-btn hero-btn-outline" onClick={() => openCustomOrder()}>
+            {t('custom.cta')}
+          </button>
+        </div>
       </div>
       <div className="hero-scroll">
         <span>{t('hero.scroll')}</span>

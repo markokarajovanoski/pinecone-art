@@ -1,3 +1,4 @@
+import { useCustomOrder } from '../../context/customOrderContext';
 import { useLanguage } from '../../i18n/languageContext';
 import { FacebookIcon, InstagramIcon } from '../SocialIcons';
 import './style.css';
@@ -5,6 +6,7 @@ import './style.css';
 /** @param {import('./Contact.props').ContactViewProps} props */
 export default function ContactView({ instagramUrl, instagramHandle, facebookUrl }) {
   const { t } = useLanguage();
+  const openCustomOrder = useCustomOrder();
 
   return (
     <section className="contact-section" id="contact">
@@ -12,6 +14,9 @@ export default function ContactView({ instagramUrl, instagramHandle, facebookUrl
         <p className="section-subtitle">{t('contact.subtitle')}</p>
         <h2 className="section-title">{t('contact.title')}</h2>
         <p className="contact-description">{t('contact.description')}</p>
+        <button type="button" className="contact-custom-btn" onClick={() => openCustomOrder()}>
+          {t('custom.cta')}
+        </button>
         <div className="social-links">
           <a
             href={instagramUrl}

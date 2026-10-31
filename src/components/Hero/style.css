@@ -78,6 +78,25 @@
   box-shadow: 0 10px 30px rgba(181, 131, 141, 0.3);
 }
 
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hero-btn-outline {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.hero-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: none;
+}
+
 .hero-scroll {
   position: absolute;
   bottom: 2.5rem;

@@ -191,6 +191,8 @@
     }
   },
   "custom": {
+    "cta": "Order your own",
+    "likeThis": "I’d like this, in my colours",
     "title": "Your own piece",
     "step": "Step {n} of {total}",
     "back": "← Back",
