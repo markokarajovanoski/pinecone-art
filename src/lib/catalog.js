@@ -17,7 +17,7 @@ import { galleryItems } from '../data/galleryData';
 const PHOTO_BUCKET = 'piece-photos';
 
 export const DEFAULT_SETTINGS = {
-  currency: 'EUR',
+  currency: 'MKD',
   instagram_url: null,
   facebook_url: null,
   phone: null,
@@ -47,7 +47,7 @@ const SAMPLE_CATALOG = {
 };
 
 // Photos shipped with the site live under /images; uploaded ones live in Supabase Storage.
-function photoUrl(supabase, path) {
+export function photoUrl(supabase, path) {
   if (/^(\/|https?:\/\/)/.test(path)) return path;
   return supabase.storage.from(PHOTO_BUCKET).getPublicUrl(path).data.publicUrl;
 }
@@ -93,17 +93,36 @@ export async function fetchCatalog() {
   };
 }
 
+// Prices are saved in the shop currency (settings.currency) and shown in denars on the
+// Macedonian site and in euros on the English one. The denar is pegged to the euro,
+// so a fixed rate stays accurate.
+const UNITS_PER_EURO = { EUR: 1, MKD: 61.5 };
+const DISPLAY_CURRENCY = { mk: 'MKD', en: 'EUR' };
+
+// "2.460 ден." — written out by hand because many browsers lack Macedonian number formats.
+const formatDenars = (amount) => `${String(amount).replace(/\B(?=(\d{3})+(?!\d))/g, '.')} ден.`;
+
 export function priceLabel(piece, currency, t, lang) {
   if (piece.status === 'sold') return t('price.sold');
   if (piece.price == null) return t('price.onRequest');
+
+  let amount = piece.price;
+  let shown = currency;
+  const target = DISPLAY_CURRENCY[lang];
+  if (target && UNITS_PER_EURO[currency] && UNITS_PER_EURO[target]) {
+    amount = Math.round((piece.price / UNITS_PER_EURO[currency]) * UNITS_PER_EURO[target]);
+    shown = target;
+  }
+  if (shown === 'MKD') return formatDenars(amount);
+
   try {
     return new Intl.NumberFormat(lang === 'mk' ? 'mk-MK' : 'en-GB', {
       style: 'currency',
-      currency,
+      currency: shown,
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
-    }).format(piece.price);
+    }).format(amount);
   } catch {
-    return `${piece.price} ${currency}`; // unknown currency code
+    return `${amount} ${shown}`; // unknown currency code
   }
 }

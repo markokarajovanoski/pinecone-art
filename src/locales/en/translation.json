@@ -116,5 +116,78 @@
   },
   "footer": {
     "text": "© {year} Pinecone Art. All rights reserved. Handcrafted with love."
+  },
+  "admin": {
+    "title": "Pinecone Art · Admin",
+    "notConfigured": "Supabase isn’t connected yet. Fill in .env.local first.",
+    "loading": "Loading…",
+    "error": "Something went wrong: {message}",
+    "notAdmin": "This account isn’t allowed to manage the shop. Ask to be added as an admin.",
+    "signOut": "Sign out",
+    "viewSite": "View the site",
+    "login": {
+      "title": "Sign in",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "busy": "Signing in…",
+      "error": "Wrong email or password."
+    },
+    "tabs": {
+      "pieces": "Pieces",
+      "settings": "Settings"
+    },
+    "pieces": {
+      "add": "+ Add a piece",
+      "empty": "No pieces yet.",
+      "edit": "Edit",
+      "noPhoto": "No photo"
+    },
+    "status": {
+      "draft": "Hidden",
+      "available": "Available",
+      "reserved": "Reserved",
+      "sold": "Sold"
+    },
+    "editor": {
+      "back": "← Back",
+      "newTitle": "New piece",
+      "title": "Title",
+      "description": "Description",
+      "category": "Category",
+      "price": "Price (MKD)",
+      "priceHint": "Whole number, in denars. Leave empty to show “Price on request”.",
+      "status": "Status",
+      "width": "Width (cm)",
+      "height": "Height (cm)",
+      "depth": "Depth (cm)",
+      "weight": "Weight (g)",
+      "save": "Save",
+      "saving": "Saving…",
+      "saved": "Saved ✓",
+      "delete": "Delete this piece",
+      "deleteConfirm": "Delete “{title}” and its photos? This can’t be undone.",
+      "deleteBlocked": "This piece has orders, so it can’t be deleted. Set it to Hidden instead.",
+      "titleRequired": "Please enter a title."
+    },
+    "photos": {
+      "title": "Photos",
+      "add": "+ Add photos",
+      "uploading": "Uploading {done} of {total}…",
+      "saveFirst": "Save the piece first, then add photos.",
+      "cover": "Cover photo",
+      "makeCover": "Make cover",
+      "delete": "Delete",
+      "deleteConfirm": "Delete this photo?"
+    },
+    "settings": {
+      "phone": "Phone (Viber / WhatsApp)",
+      "instagram_url": "Instagram link",
+      "facebook_url": "Facebook link",
+      "email": "Email",
+      "currency": "Currency (e.g. MKD)",
+      "shipping_fee": "Delivery price",
+      "banner_text": "Notice for visitors"
+    }
   }
 }
