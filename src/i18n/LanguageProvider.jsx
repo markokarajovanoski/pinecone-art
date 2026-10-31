@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
 import { LanguageContext } from './languageContext';
-import { LANGUAGES, translations } from './translations';
+import { DEFAULT_LANGUAGE, LANGUAGES, lookup } from './translations';
 
 const STORAGE_KEY = 'pinecone-art-lang';
 
-// The visitor's last choice, otherwise Macedonian for browsers set to Macedonian.
+// The visitor's last choice, otherwise the default (Macedonian).
 function initialLanguage() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -12,7 +12,7 @@ function initialLanguage() {
   } catch {
     // storage can be blocked (private mode); fall through
   }
-  return navigator.language?.toLowerCase().startsWith('mk') ? 'mk' : 'en';
+  return DEFAULT_LANGUAGE;
 }
 
 export default function LanguageProvider({ children }) {
@@ -20,7 +20,7 @@ export default function LanguageProvider({ children }) {
 
   useEffect(() => {
     document.documentElement.lang = lang;
-    document.title = translations[lang]['meta.title'];
+    document.title = lookup(lang, 'meta.title');
     try {
       localStorage.setItem(STORAGE_KEY, lang);
     } catch {
@@ -30,7 +30,7 @@ export default function LanguageProvider({ children }) {
 
   const value = useMemo(() => {
     const t = (key, vars = {}) => {
-      const text = translations[lang][key] ?? translations.en[key] ?? key;
+      const text = lookup(lang, key) ?? key;
       return text.replace(/\{(\w+)\}/g, (match, name) => vars[name] ?? match);
     };
     return { lang, setLang, t };

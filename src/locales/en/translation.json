@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "title": "Pinecone Art | Handcrafted Nature-Inspired Art"
+  },
+  "lang": {
+    "label": "Language"
+  },
+  "nav": {
+    "home": "Home",
+    "gallery": "Gallery",
+    "about": "About",
+    "contact": "Contact",
+    "toggle": "Toggle navigation"
+  },
+  "hero": {
+    "subtitle": "Handcrafted with Love",
+    "title1": "Nature Transformed",
+    "title2": "Into Art",
+    "description": "Each piece is uniquely crafted from pinecones, transforming nature's gifts into stunning floral arrangements and decorative art.",
+    "button": "Explore the Collection",
+    "scroll": "Scroll"
+  },
+  "gallery": {
+    "subtitle": "The Collection",
+    "title": "Pinecone Masterpieces",
+    "description": "Browse through our handcrafted pinecone art pieces — each one a unique expression of natural beauty.",
+    "all": "All Pieces",
+    "loading": "Loading the collection…",
+    "error": "The collection couldn't be loaded right now. Please refresh the page in a moment.",
+    "view": "View",
+    "viewPiece": "View {title}",
+    "askSimilar": "Ask for one like it"
+  },
+  "category": {
+    "framed": "Framed Art",
+    "wreath": "Wreaths & Shapes",
+    "standing": "Standing Pieces"
+  },
+  "status": {
+    "reserved": "Reserved",
+    "sold": "Sold"
+  },
+  "price": {
+    "sold": "Sold",
+    "onRequest": "Price on request"
+  },
+  "order": {
+    "button": "Order",
+    "askButton": "Ask about it",
+    "title": "Order this piece",
+    "titleSimilar": "Ask for one like it",
+    "hint": "Choose how to message us. Your message is already written — just press send.",
+    "message": "Hello! I’m interested in “{title}”{price}. Is it still available?",
+    "messageSimilar": "Hello! I love “{title}”. Could you make one like it for me?",
+    "noChannels": "Ordering by message isn’t set up yet. Please reach us through"
+  },
+  "channel": {
+    "order": {
+      "viber": "Order on Viber",
+      "whatsapp": "Order on WhatsApp",
+      "messenger": "Message us on Messenger"
+    },
+    "call": "Call {phone}",
+    "share": {
+      "viber": "Send on Viber",
+      "whatsapp": "Send on WhatsApp",
+      "facebook": "Share on Facebook"
+    }
+  },
+  "share": {
+    "button": "Send to a friend",
+    "title": "Send to a friend",
+    "message": "Look at this handmade pinecone art: “{title}”",
+    "copy": "Copy link",
+    "copied": "Link copied ✓",
+    "copyPrompt": "Copy this link:"
+  },
+  "lightbox": {
+    "close": "Close",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "about": {
+    "subtitle": "The Story",
+    "title1": "Crafted by Hand,",
+    "title2": "Inspired by Nature",
+    "p1": "Every piece begins with a simple pinecone — foraged, cleaned, and carefully deconstructed. Each scale is shaped, painted, and assembled petal by petal to create flowers that look remarkably real yet carry the unmistakable texture of nature.",
+    "p2": "Combined with natural elements like birch bark, twigs, burlap, and moss, each composition tells its own story. No two pieces are ever alike.",
+    "stat1": {
+      "number": "100%",
+      "label": "Handmade"
+    },
+    "stat2": {
+      "number": "Natural",
+      "label": "Materials"
+    },
+    "stat3": {
+      "number": "Unique",
+      "label": "Every Piece"
+    },
+    "img1": "Pinecone art detail",
+    "img2": "Pinecone wreath detail"
+  },
+  "delivery": {
+    "title": "Nationwide Delivery via Kargo",
+    "before": "We deliver all of our handcrafted pieces safely across the country through",
+    "after": ". Every order is carefully packaged to ensure your artwork arrives in perfect condition. Fast, reliable, and trackable — we've got your piece covered from our studio to your door.",
+    "shipsWith": "Ships with"
+  },
+  "contact": {
+    "subtitle": "Get in Touch",
+    "title": "Interested in a Piece?",
+    "description": "Each artwork is one-of-a-kind. Reach out through our social channels to inquire about available pieces or to commission a custom creation.",
+    "instagramCta": "Follow our journey →",
+    "facebookCta": "Message us →"
+  },
+  "footer": {
+    "text": "© {year} Pinecone Art. All rights reserved. Handcrafted with love."
+  }
+}
