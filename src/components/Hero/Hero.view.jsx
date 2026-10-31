@@ -1,6 +1,7 @@
-import { useLanguage } from '../i18n/languageContext';
+import { useLanguage } from '../../i18n/languageContext';
+import './style.css';
 
-export default function Hero() {
+export default function HeroView() {
   const { t } = useLanguage();
 
   return (

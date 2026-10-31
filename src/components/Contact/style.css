@@ -1,0 +1,104 @@
+.contact-section {
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.contact-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-description {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.social-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem 2rem;
+  background: var(--color-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  text-align: left;
+  min-width: 240px;
+  flex: 1;
+  max-width: 300px;
+}
+
+.social-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.social-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-white);
+}
+
+.instagram-icon {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.facebook-icon {
+  background: #1877f2;
+}
+
+.social-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.social-platform {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.social-handle {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+.social-cta {
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .social-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  .contact-section {
+    padding: 4rem 1.25rem;
+  }
+}

@@ -1,7 +1,6 @@
-import { useLanguage } from '../i18n/languageContext';
-
 // Inline SVG flags: emoji flags show up as plain letters on Windows.
-function UkFlag() {
+
+export function UkFlag() {
   return (
     <svg viewBox="0 0 60 30" aria-hidden="true">
       <clipPath id="uk-flag-clip">
@@ -16,7 +15,7 @@ function UkFlag() {
   );
 }
 
-function MkFlag() {
+export function MkFlag() {
   return (
     <svg viewBox="0 0 20 10" aria-hidden="true">
       <rect width="20" height="10" fill="#D20000" />
@@ -33,33 +32,5 @@ function MkFlag() {
         <circle cx="10" cy="5" r="1.65" />
       </g>
     </svg>
-  );
-}
-
-const OPTIONS = [
-  { code: 'en', label: 'English', Flag: UkFlag },
-  { code: 'mk', label: 'Македонски', Flag: MkFlag },
-];
-
-export default function LanguageSwitch() {
-  const { lang, setLang, t } = useLanguage();
-
-  return (
-    <div className="lang-switch" role="group" aria-label={t('lang.label')}>
-      {OPTIONS.map(({ code, label, Flag }) => (
-        <button
-          key={code}
-          type="button"
-          className={`lang-btn${lang === code ? ' active' : ''}`}
-          onClick={() => setLang(code)}
-          aria-pressed={lang === code}
-          aria-label={label}
-          title={label}
-          lang={code}
-        >
-          <Flag />
-        </button>
-      ))}
-    </div>
   );
 }

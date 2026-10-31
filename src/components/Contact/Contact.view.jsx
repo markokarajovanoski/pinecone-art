@@ -1,13 +1,9 @@
-import { useCatalog } from '../context/catalogContext';
-import { useLanguage } from '../i18n/languageContext';
+import { useLanguage } from '../../i18n/languageContext';
+import './style.css';
 
-export default function Contact() {
-  const { settings } = useCatalog();
+/** @param {import('./Contact.props').ContactViewProps} props */
+export default function ContactView({ instagramUrl, instagramHandle, facebookUrl }) {
   const { t } = useLanguage();
-  // Real profile links come from the settings row; until they're filled in, link to the sites themselves.
-  const instagramUrl = settings.instagram_url || 'https://www.instagram.com/';
-  const facebookUrl = settings.facebook_url || 'https://www.facebook.com/';
-  const instagramName = instagramUrl.match(/instagram\.com\/([^/?#]+)/)?.[1];
 
   return (
     <section className="contact-section" id="contact">
@@ -29,7 +25,7 @@ export default function Contact() {
             </div>
             <div className="social-info">
               <span className="social-platform">Instagram</span>
-              <span className="social-handle">@{instagramName ?? 'pinecone.art'}</span>
+              <span className="social-handle">@{instagramHandle}</span>
               <span className="social-cta">{t('contact.instagramCta')}</span>
             </div>
           </a>

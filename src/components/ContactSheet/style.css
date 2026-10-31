@@ -1,0 +1,115 @@
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.sheet {
+  position: relative;
+  width: 100%;
+  max-width: 30rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--color-white);
+  border-radius: 20px 20px 0 0;
+  padding: 1.5rem 1.25rem 2rem;
+  animation: sheetUp 0.25s ease-out;
+}
+
+@media (min-width: 600px) {
+  .sheet-backdrop { align-items: center; }
+  .sheet { border-radius: 20px; }
+}
+
+@keyframes sheetUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.sheet-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.9rem;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--color-text-light);
+  padding: 0.25rem 0.5rem;
+}
+
+.sheet-piece {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding-right: 2rem;
+}
+
+.sheet-piece img {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.sheet-piece h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.sheet-piece-name {
+  font-size: 1.05rem;
+  color: var(--color-text);
+}
+
+.sheet-piece-price {
+  font-weight: 600;
+  color: var(--color-accent-dark);
+}
+
+.sheet-hint {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.sheet-hint a {
+  color: var(--color-accent-dark);
+  text-decoration: underline;
+}
+
+.sheet-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.sheet-btn {
+  display: block;
+  width: 100%;
+  min-height: 56px;
+  padding: 1rem;
+  border-radius: 14px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-white);
+  background: var(--color-text);
+}
+
+.sheet-btn-viber { background: #7360f2; }
+.sheet-btn-whatsapp { background: #1a9e4b; }
+.sheet-btn-messenger { background: #0866ff; }
+.sheet-btn-facebook { background: #1877f2; }
+.sheet-btn-call { background: var(--color-accent-dark); }
+.sheet-btn-copy {
+  background: var(--color-white);
+  color: var(--color-text);
+  border: 2px solid #ccc;
+}

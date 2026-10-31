@@ -1,6 +1,7 @@
-import { useLanguage } from '../i18n/languageContext';
+import { useLanguage } from '../../i18n/languageContext';
+import './style.css';
 
-export default function Delivery() {
+export default function DeliveryView() {
   const { t } = useLanguage();
 
   return (

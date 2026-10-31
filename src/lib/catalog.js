@@ -1,6 +1,19 @@
 import { getSupabase, isSupabaseConfigured } from './supabase';
 import { galleryItems } from '../data/galleryData';
 
+/**
+ * A piece as the UI uses it.
+ * @typedef {object} Piece
+ * @property {number} id
+ * @property {string} slug
+ * @property {string} title
+ * @property {string} description
+ * @property {string} category  category slug
+ * @property {number | null} price  whole currency units; null shows "Price on request"
+ * @property {'available' | 'reserved' | 'sold'} status
+ * @property {{ src: string, alt: string }[]} photos  the first one is the cover
+ */
+
 const PHOTO_BUCKET = 'piece-photos';
 
 export const DEFAULT_SETTINGS = {

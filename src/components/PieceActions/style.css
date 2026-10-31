@@ -1,0 +1,37 @@
+.piece-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.order-btn,
+.share-btn {
+  flex: 1 1 8rem;
+  min-height: 48px;
+  padding: 0.7rem 1rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background var(--transition), color var(--transition);
+}
+
+.order-btn {
+  background: var(--color-accent-dark);
+  color: var(--color-white);
+}
+
+.order-btn:hover,
+.order-btn:focus-visible {
+  background: #6f4450;
+}
+
+.share-btn {
+  border: 2px solid var(--color-accent-dark);
+  color: var(--color-accent-dark);
+}
+
+.share-btn:hover,
+.share-btn:focus-visible {
+  background: var(--color-accent-light);
+}
