@@ -1,22 +1,23 @@
+import { useLanguage } from '../i18n/languageContext';
+
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="hero" id="home">
       <div className="hero-overlay"></div>
       <div className="hero-content">
-        <p className="hero-subtitle">Handcrafted with Love</p>
+        <p className="hero-subtitle">{t('hero.subtitle')}</p>
         <h1 className="hero-title">
-          Nature Transformed<br />Into Art
+          {t('hero.title1')}<br />{t('hero.title2')}
         </h1>
-        <p className="hero-description">
-          Each piece is uniquely crafted from pinecones, transforming nature&apos;s gifts into
-          stunning floral arrangements and decorative art.
-        </p>
+        <p className="hero-description">{t('hero.description')}</p>
         <a href="#gallery" className="hero-btn">
-          Explore the Collection
+          {t('hero.button')}
         </a>
       </div>
       <div className="hero-scroll">
-        <span>Scroll</span>
+        <span>{t('hero.scroll')}</span>
         <div className="scroll-line"></div>
       </div>
     </section>

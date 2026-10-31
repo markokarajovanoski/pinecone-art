@@ -74,11 +74,11 @@ export async function fetchCatalog() {
   };
 }
 
-export function priceLabel(piece, currency) {
-  if (piece.status === 'sold') return 'Sold';
-  if (piece.price == null) return 'Price on request';
+export function priceLabel(piece, currency, t, lang) {
+  if (piece.status === 'sold') return t('price.sold');
+  if (piece.price == null) return t('price.onRequest');
   try {
-    return new Intl.NumberFormat(undefined, {
+    return new Intl.NumberFormat(lang === 'mk' ? 'mk-MK' : 'en-GB', {
       style: 'currency',
       currency,
       minimumFractionDigits: 0,

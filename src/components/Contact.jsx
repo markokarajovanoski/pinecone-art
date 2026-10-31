@@ -1,7 +1,9 @@
 import { useCatalog } from '../context/catalogContext';
+import { useLanguage } from '../i18n/languageContext';
 
 export default function Contact() {
   const { settings } = useCatalog();
+  const { t } = useLanguage();
   // Real profile links come from the settings row; until they're filled in, link to the sites themselves.
   const instagramUrl = settings.instagram_url || 'https://www.instagram.com/';
   const facebookUrl = settings.facebook_url || 'https://www.facebook.com/';
@@ -10,12 +12,9 @@ export default function Contact() {
   return (
     <section className="contact-section" id="contact">
       <div className="contact-container reveal">
-        <p className="section-subtitle">Get in Touch</p>
-        <h2 className="section-title">Interested in a Piece?</h2>
-        <p className="contact-description">
-          Each artwork is one-of-a-kind. Reach out through our social channels to inquire
-          about available pieces or to commission a custom creation.
-        </p>
+        <p className="section-subtitle">{t('contact.subtitle')}</p>
+        <h2 className="section-title">{t('contact.title')}</h2>
+        <p className="contact-description">{t('contact.description')}</p>
         <div className="social-links">
           <a
             href={instagramUrl}
@@ -31,7 +30,7 @@ export default function Contact() {
             <div className="social-info">
               <span className="social-platform">Instagram</span>
               <span className="social-handle">@{instagramName ?? 'pinecone.art'}</span>
-              <span className="social-cta">Follow our journey &rarr;</span>
+              <span className="social-cta">{t('contact.instagramCta')}</span>
             </div>
           </a>
 
@@ -49,7 +48,7 @@ export default function Contact() {
             <div className="social-info">
               <span className="social-platform">Facebook</span>
               <span className="social-handle">Pinecone Art</span>
-              <span className="social-cta">Message us &rarr;</span>
+              <span className="social-cta">{t('contact.facebookCta')}</span>
             </div>
           </a>
         </div>

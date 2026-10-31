@@ -1,4 +1,8 @@
+import { useLanguage } from '../i18n/languageContext';
+
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -6,9 +10,7 @@ export default function Footer() {
           <span className="logo-icon">✧</span>
           <span>Pinecone Art</span>
         </div>
-        <p className="footer-text">
-          &copy; {new Date().getFullYear()} Pinecone Art. All rights reserved. Handcrafted with love.
-        </p>
+        <p className="footer-text">{t('footer.text', { year: new Date().getFullYear() })}</p>
       </div>
     </footer>
   );

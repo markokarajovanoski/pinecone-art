@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../i18n/languageContext';
+import LanguageSwitch from './LanguageSwitch';
 
 export default function Navbar() {
+  const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -45,14 +48,15 @@ export default function Navbar() {
                 className={activeSection === id ? 'active' : ''}
                 onClick={handleNavClick}
               >
-                {id.charAt(0).toUpperCase() + id.slice(1)}
+                {t(`nav.${id}`)}
               </a>
             </li>
           ))}
         </ul>
+        <LanguageSwitch />
         <button
           className={`nav-toggle${menuOpen ? ' active' : ''}`}
-          aria-label="Toggle navigation"
+          aria-label={t('nav.toggle')}
           onClick={() => setMenuOpen((o) => !o)}
         >
           <span></span>

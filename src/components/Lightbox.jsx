@@ -1,7 +1,9 @@
 import { useEffect, useCallback } from 'react';
 import { priceLabel } from '../lib/catalog';
+import { useLanguage } from '../i18n/languageContext';
 
 export default function Lightbox({ pieces, currentIndex, currency, onClose, onNext, onPrev }) {
+  const { lang, t } = useLanguage();
   const handleKeyDown = useCallback(
     (e) => {
       if (e.key === 'Escape') onClose();
@@ -25,18 +27,18 @@ export default function Lightbox({ pieces, currentIndex, currency, onClose, onNe
 
   return (
     <div className="lightbox active" onClick={(e) => e.target === e.currentTarget && onClose()}>
-      <button className="lightbox-close" onClick={onClose} aria-label="Close">&times;</button>
+      <button className="lightbox-close" onClick={onClose} aria-label={t('lightbox.close')}>&times;</button>
       {pieces.length > 1 && (
         <>
-          <button className="lightbox-nav lightbox-prev" onClick={onPrev} aria-label="Previous">&#10094;</button>
-          <button className="lightbox-nav lightbox-next" onClick={onNext} aria-label="Next">&#10095;</button>
+          <button className="lightbox-nav lightbox-prev" onClick={onPrev} aria-label={t('lightbox.previous')}>&#10094;</button>
+          <button className="lightbox-nav lightbox-next" onClick={onNext} aria-label={t('lightbox.next')}>&#10095;</button>
         </>
       )}
       <div className="lightbox-content">
         <img src={photo.src} alt={photo.alt} />
         <div className="lightbox-caption">
           <span>{piece.title}</span>
-          <span className="lightbox-price">{priceLabel(piece, currency)}</span>
+          <span className="lightbox-price">{priceLabel(piece, currency, t, lang)}</span>
         </div>
       </div>
     </div>

@@ -1,19 +1,21 @@
+import { useLanguage } from '../i18n/languageContext';
+
 export default function Delivery() {
+  const { t } = useLanguage();
+
   return (
     <section className="delivery-section">
       <div className="delivery-container reveal">
         <div className="delivery-icon">📦</div>
         <div className="delivery-content">
-          <h3 className="delivery-title">Nationwide Delivery via Kargo</h3>
+          <h3 className="delivery-title">{t('delivery.title')}</h3>
           <p className="delivery-text">
-            We deliver all of our handcrafted pieces safely across the country through{' '}
-            <strong>Kargo</strong>. Every order is carefully packaged to ensure your artwork
-            arrives in perfect condition. Fast, reliable, and trackable — we&apos;ve got your
-            piece covered from our studio to your door.
+            {t('delivery.before')} <strong>Kargo</strong>
+            {t('delivery.after')}
           </p>
         </div>
         <div className="delivery-badge">
-          <span>Ships with</span>
+          <span>{t('delivery.shipsWith')}</span>
           <strong>KARGO</strong>
         </div>
       </div>
