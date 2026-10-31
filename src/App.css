@@ -511,13 +511,173 @@ button {
   color: var(--color-accent-dark);
 }
 
-.similar-link {
-  margin-left: 0.6rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--color-teal);
+/* ===== Order & share buttons ===== */
+.piece-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.order-btn,
+.share-btn {
+  flex: 1 1 8rem;
+  min-height: 48px;
+  padding: 0.7rem 1rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background var(--transition), color var(--transition);
+}
+
+.order-btn {
+  background: var(--color-accent-dark);
+  color: var(--color-white);
+}
+
+.order-btn:hover,
+.order-btn:focus-visible {
+  background: #6f4450;
+}
+
+.share-btn {
+  border: 2px solid var(--color-accent-dark);
+  color: var(--color-accent-dark);
+}
+
+.share-btn:hover,
+.share-btn:focus-visible {
+  background: var(--color-accent-light);
+}
+
+.lightbox-actions {
+  width: min(28rem, 90vw);
+}
+
+.lightbox-actions .share-btn {
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
+
+.lightbox-actions .share-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ===== Order / share sheet ===== */
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.sheet {
+  position: relative;
+  width: 100%;
+  max-width: 30rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--color-white);
+  border-radius: 20px 20px 0 0;
+  padding: 1.5rem 1.25rem 2rem;
+  animation: sheetUp 0.25s ease-out;
+}
+
+@media (min-width: 600px) {
+  .sheet-backdrop { align-items: center; }
+  .sheet { border-radius: 20px; }
+}
+
+@keyframes sheetUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.sheet-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.9rem;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--color-text-light);
+  padding: 0.25rem 0.5rem;
+}
+
+.sheet-piece {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding-right: 2rem;
+}
+
+.sheet-piece img {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.sheet-piece h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.sheet-piece-name {
+  font-size: 1.05rem;
+  color: var(--color-text);
+}
+
+.sheet-piece-price {
+  font-weight: 600;
+  color: var(--color-accent-dark);
+}
+
+.sheet-hint {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.sheet-hint a {
+  color: var(--color-accent-dark);
   text-decoration: underline;
-  text-underline-offset: 2px;
+}
+
+.sheet-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.sheet-btn {
+  display: block;
+  width: 100%;
+  min-height: 56px;
+  padding: 1rem;
+  border-radius: 14px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-white);
+  background: var(--color-text);
+}
+
+.sheet-btn-viber { background: #7360f2; }
+.sheet-btn-whatsapp { background: #1a9e4b; }
+.sheet-btn-messenger { background: #0866ff; }
+.sheet-btn-facebook { background: #1877f2; }
+.sheet-btn-call { background: var(--color-accent-dark); }
+.sheet-btn-copy {
+  background: var(--color-white);
+  color: var(--color-text);
+  border: 2px solid #ccc;
 }
 
 /* ===== About Section ===== */
@@ -819,7 +979,7 @@ button {
 
 .lightbox-content img {
   max-width: 90vw;
-  max-height: 80vh;
+  max-height: 64vh;
   object-fit: contain;
   border-radius: 8px;
   transform: scale(0.9);

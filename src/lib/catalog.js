@@ -7,7 +7,11 @@ export const DEFAULT_SETTINGS = {
   currency: 'EUR',
   instagram_url: null,
   facebook_url: null,
+  phone: null,
 };
+
+const slugify = (title) =>
+  title.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 // Shown until Supabase is connected (see README): the pieces from data/galleryData.js.
 const SAMPLE_CATALOG = {
@@ -18,6 +22,7 @@ const SAMPLE_CATALOG = {
   ],
   pieces: galleryItems.map((item) => ({
     id: item.id,
+    slug: slugify(item.title),
     title: item.title,
     description: item.desc,
     category: item.category,
@@ -37,6 +42,7 @@ function photoUrl(supabase, path) {
 function toPiece(supabase, row) {
   return {
     id: row.id,
+    slug: row.slug,
     title: row.title,
     description: row.description,
     category: row.category.slug,
@@ -57,12 +63,12 @@ export async function fetchCatalog() {
     supabase
       .from('pieces')
       .select(
-        'id, title, description, price, status, category:categories(slug), photos:piece_photos(path, alt_text, position)'
+        'id, slug, title, description, price, status, category:categories(slug), photos:piece_photos(path, alt_text, position)'
       )
       .neq('status', 'draft') // a logged-in admin can read drafts, but they don't belong on the site
       .order('sort_order')
       .order('id'),
-    supabase.from('settings').select('currency, instagram_url, facebook_url').maybeSingle(),
+    supabase.from('settings').select('currency, instagram_url, facebook_url, phone').maybeSingle(),
   ]);
   const failed = [categories, pieces, settings].find((result) => result.error);
   if (failed) throw failed.error;

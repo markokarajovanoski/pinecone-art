@@ -1,16 +1,22 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { useCatalog } from '../context/catalogContext';
 import { priceLabel } from '../lib/catalog';
+import { canUseNativeShare, pieceUrl } from '../lib/contact';
 import { useLanguage } from '../i18n/languageContext';
 import Lightbox from './Lightbox';
+import ContactSheet from './ContactSheet';
 
 const BADGE_STATUSES = ['reserved', 'sold'];
+const ORDER_LABELS = { available: 'order.button', reserved: 'order.askButton', sold: 'gallery.askSimilar' };
 
 export default function Gallery() {
   const { status, categories, pieces, settings } = useCatalog();
   const { lang, t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState('all');
   const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [sheet, setSheet] = useState(null); // { mode: 'order' | 'share', piece }
+  // A shared link (?piece=slug) opens that piece once the catalog has loaded.
+  const linkedSlug = useRef(new URLSearchParams(window.location.search).get('piece'));
 
   // Only offer categories that have something to show.
   const filters = [
@@ -30,6 +36,25 @@ export default function Gallery() {
     [pieces, activeFilter]
   );
 
+  useEffect(() => {
+    if (!linkedSlug.current || pieces.length === 0) return;
+    const index = pieces.findIndex((piece) => piece.slug === linkedSlug.current);
+    linkedSlug.current = null;
+    if (index === -1) return;
+    setActiveFilter('all');
+    setLightboxIndex(index);
+  }, [pieces]);
+
+  // Keep the address bar pointing at the open piece, so it can be copied and shared.
+  useEffect(() => {
+    if (linkedSlug.current) return;
+    const piece = lightboxIndex === null ? null : visibleItems[lightboxIndex];
+    const url = new URL(window.location.href);
+    if (piece) url.searchParams.set('piece', piece.slug);
+    else url.searchParams.delete('piece');
+    window.history.replaceState(null, '', url);
+  }, [lightboxIndex, visibleItems]);
+
   const closeLightbox = () => setLightboxIndex(null);
 
   // The arrows stay within the current filter.
@@ -38,6 +63,18 @@ export default function Gallery() {
 
   const prevImage = () =>
     setLightboxIndex((i) => (i - 1 + visibleItems.length) % visibleItems.length);
+
+  const openOrder = (piece) => setSheet({ mode: 'order', piece });
+
+  const openShare = (piece) => {
+    if (canUseNativeShare()) {
+      navigator
+        .share({ title: piece.title, text: t('share.message', { title: piece.title }), url: pieceUrl(piece) })
+        .catch(() => {}); // closing the share menu rejects; nothing to do
+    } else {
+      setSheet({ mode: 'share', piece });
+    }
+  };
 
   return (
     <section className="gallery-section" id="gallery">
@@ -85,12 +122,15 @@ export default function Gallery() {
               <div className="gallery-info">
                 <h3>{piece.title}</h3>
                 <p>{piece.description}</p>
-                <p className="gallery-price">
-                  {priceLabel(piece, settings.currency, t, lang)}
-                  {piece.status === 'sold' && (
-                    <a href="#contact" className="similar-link">{t('gallery.askSimilar')}</a>
-                  )}
-                </p>
+                <p className="gallery-price">{priceLabel(piece, settings.currency, t, lang)}</p>
+                <div className="piece-actions">
+                  <button type="button" className="order-btn" onClick={() => openOrder(piece)}>
+                    {t(ORDER_LABELS[piece.status] ?? 'order.button')}
+                  </button>
+                  <button type="button" className="share-btn" onClick={() => openShare(piece)}>
+                    {t('share.button')}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -105,8 +145,14 @@ export default function Gallery() {
           onClose={closeLightbox}
           onNext={nextImage}
           onPrev={prevImage}
+          onOrder={openOrder}
+          onShare={openShare}
+          orderLabel={(piece) => t(ORDER_LABELS[piece.status] ?? 'order.button')}
+          keysEnabled={!sheet}
         />
       )}
+
+      {sheet && <ContactSheet mode={sheet.mode} piece={sheet.piece} onClose={() => setSheet(null)} />}
     </section>
   );
 }
