@@ -1,6 +1,7 @@
--- Starting data: the 12 pieces that are on the site today. Run once, after the migration.
--- Every piece starts as 'available' with no price ("Price on request"). Add the real
--- prices, and mark anything already sold, in Table Editor → pieces.
+-- Starting data: the pieces whose photos ship with the site. Run after the migration.
+-- Safe to run again: pieces that already exist are skipped, so re-running it only adds
+-- new entries. New pieces start as 'available' with no price ("Price on request");
+-- set prices and statuses in the admin panel.
 
 insert into public.categories (slug, name, sort_order) values
   ('framed', 'Framed Art', 1),
@@ -45,7 +46,13 @@ with data (sort_order, slug, title, description, category, photo, alt) as (
         '/images/62c6659a-dfbd-4e47-aeae-2eb8861cd28f.jpg', 'Mauve and pink pinecone bouquet on dark wood plank'),
     (12, 'rose-and-slate-tower', 'Rose & Slate Tower',
         'Soft rose & slate-blue pinecone flowers cascading on dark reclaimed wood', 'standing',
-        '/images/ed4b326e-91a6-4ca6-96be-02f043e503b4.jpg', 'Pink and teal pinecone flowers on dark wood plank')
+        '/images/ed4b326e-91a6-4ca6-96be-02f043e503b4.jpg', 'Pink and teal pinecone flowers on dark wood plank'),
+    (13, 'autumn-flame', 'Autumn Flame',
+        'Orange, yellow & white pinecone flowers on black burlap with bark and a twisted ribbon', 'framed',
+        '/images/autumn-flame.jpg', 'Orange, yellow and white pinecone flowers on black burlap in a black frame'),
+    (14, 'old-enough-to-know-better', 'Old Enough to Know Better',
+        'Blue, purple & black pinecone flowers with twig stems, a burlap bow and a handwritten quote', 'framed',
+        '/images/old-enough-to-know-better.jpg', 'Blue, purple and black pinecone flowers with twig stems on a purple background')
 ),
 new_pieces as (
   insert into public.pieces (slug, title, description, category_id, status, sort_order)

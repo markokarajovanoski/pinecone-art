@@ -95,6 +95,22 @@ const galleryItems = [
     title: 'Rose & Slate Tower',
     desc: 'Soft rose & slate-blue pinecone flowers cascading on dark reclaimed wood',
   },
+  {
+    id: 12,
+    category: 'framed',
+    src: '/images/autumn-flame.jpg',
+    alt: 'Orange, yellow and white pinecone flowers on black burlap in a black frame',
+    title: 'Autumn Flame',
+    desc: 'Orange, yellow & white pinecone flowers on black burlap with bark and a twisted ribbon',
+  },
+  {
+    id: 13,
+    category: 'framed',
+    src: '/images/old-enough-to-know-better.jpg',
+    alt: 'Blue, purple and black pinecone flowers with twig stems on a purple background',
+    title: 'Old Enough to Know Better',
+    desc: 'Blue, purple & black pinecone flowers with twig stems, a burlap bow and a handwritten quote',
+  },
 ];
 
 export { galleryItems };
