@@ -1,8 +1,10 @@
+import { sitePhoto } from '../lib/supabase';
+
 const galleryItems = [
   {
     id: 0,
     category: 'framed',
-    src: '/images/9a7c7ba2-d0a3-4d14-8e37-0f348e18a804.jpg',
+    src: sitePhoto('9a7c7ba2-d0a3-4d14-8e37-0f348e18a804.jpg'),
     alt: 'Pink cherry blossom pinecone bouquet on white canvas',
     title: 'Cherry Blossom Bouquet',
     desc: 'Pink & white pinecone flowers on textured canvas with burlap bow',
@@ -10,7 +12,7 @@ const galleryItems = [
   {
     id: 1,
     category: 'framed',
-    src: '/images/3f3e9e01-5da5-4831-82cb-fb66bc2fde16.jpg',
+    src: sitePhoto('3f3e9e01-5da5-4831-82cb-fb66bc2fde16.jpg'),
     alt: 'Jewel-toned pinecone flowers on burlap in wooden frame',
     title: 'Jewel Garden',
     desc: 'Rich teal, gold & burgundy pinecone blooms on burlap backing',
@@ -18,7 +20,7 @@ const galleryItems = [
   {
     id: 2,
     category: 'framed',
-    src: '/images/6e25c97e-4c3b-4e73-a4eb-cc756b8f8be5.jpg',
+    src: sitePhoto('6e25c97e-4c3b-4e73-a4eb-cc756b8f8be5.jpg'),
     alt: 'Woman silhouette with pinecone flower hair on black canvas',
     title: 'Flora Woman',
     desc: 'Hand-drawn silhouette with cascading pinecone flower hair',
@@ -26,7 +28,7 @@ const galleryItems = [
   {
     id: 3,
     category: 'framed',
-    src: '/images/6a3289f9-9c46-4f26-8202-f177b7118d86.jpg',
+    src: sitePhoto('6a3289f9-9c46-4f26-8202-f177b7118d86.jpg'),
     alt: 'Silver and teal pinecone bouquet on grey background',
     title: 'Silver Moonlight',
     desc: 'Silver, teal & purple pinecone bouquet with burlap ribbon',
@@ -34,7 +36,7 @@ const galleryItems = [
   {
     id: 4,
     category: 'wreath',
-    src: '/images/35b5e998-89de-49dc-b5fa-99f6db6087a2.jpg',
+    src: sitePhoto('35b5e998-89de-49dc-b5fa-99f6db6087a2.jpg'),
     alt: 'Colorful rainbow pinecone flower wreath',
     title: 'Rainbow Wreath',
     desc: 'Vibrant multicolored pinecone wreath with jute hanger',
@@ -42,7 +44,7 @@ const galleryItems = [
   {
     id: 5,
     category: 'framed',
-    src: '/images/55fb9251-52ae-46b3-a589-51a5fa66d3c1.jpg',
+    src: sitePhoto('55fb9251-52ae-46b3-a589-51a5fa66d3c1.jpg'),
     alt: 'Teal and lavender pinecone bouquet with bark vase',
     title: 'Woodland Elegance',
     desc: 'Teal & lavender blooms with natural birch bark vase',
@@ -50,7 +52,7 @@ const galleryItems = [
   {
     id: 6,
     category: 'standing',
-    src: '/images/55c63e88-56b0-4707-9818-39cee1322435.jpg',
+    src: sitePhoto('55c63e88-56b0-4707-9818-39cee1322435.jpg'),
     alt: 'Blue and gold pinecone flowers on golden wood plank',
     title: 'Golden Blue Tower',
     desc: 'Blue & gold pinecone flowers on gilded reclaimed wood',
@@ -58,7 +60,7 @@ const galleryItems = [
   {
     id: 7,
     category: 'wreath',
-    src: '/images/c5834be9-52f5-488d-a119-52988bcf3511.jpg',
+    src: sitePhoto('c5834be9-52f5-488d-a119-52988bcf3511.jpg'),
     alt: 'Pink pinecone heart decoration',
     title: 'Heart of Pine',
     desc: 'Heart-shaped arrangement of pink & white pinecone flowers',
@@ -66,7 +68,7 @@ const galleryItems = [
   {
     id: 8,
     category: 'framed',
-    src: '/images/90ba910a-f231-4dce-8ef7-879359cd585a.jpg',
+    src: sitePhoto('90ba910a-f231-4dce-8ef7-879359cd585a.jpg'),
     alt: 'Teal and yellow pinecone bouquet with twig stems',
     title: 'Rustic Bouquet',
     desc: 'Teal & golden pinecone flowers with natural twig stems and burlap wrap',
@@ -74,7 +76,7 @@ const galleryItems = [
   {
     id: 9,
     category: 'framed',
-    src: '/images/91233afc-f51a-495b-9b35-994c5f010a01.jpg',
+    src: sitePhoto('91233afc-f51a-495b-9b35-994c5f010a01.jpg'),
     alt: 'Coral and grey pinecone flowers with bark vase on burlap',
     title: 'Coral Poppy Garden',
     desc: 'Coral & slate pinecone poppies in a natural bark vase with jute bow',
@@ -82,7 +84,7 @@ const galleryItems = [
   {
     id: 10,
     category: 'standing',
-    src: '/images/62c6659a-dfbd-4e47-aeae-2eb8861cd28f.jpg',
+    src: sitePhoto('62c6659a-dfbd-4e47-aeae-2eb8861cd28f.jpg'),
     alt: 'Mauve and pink pinecone bouquet on dark wood plank',
     title: 'Mauve Bouquet Tower',
     desc: 'Dusky mauve & pink blooms on dark wood with burlap & twine wrap',
@@ -90,7 +92,7 @@ const galleryItems = [
   {
     id: 11,
     category: 'standing',
-    src: '/images/ed4b326e-91a6-4ca6-96be-02f043e503b4.jpg',
+    src: sitePhoto('ed4b326e-91a6-4ca6-96be-02f043e503b4.jpg'),
     alt: 'Pink and teal pinecone flowers on dark wood plank',
     title: 'Rose & Slate Tower',
     desc: 'Soft rose & slate-blue pinecone flowers cascading on dark reclaimed wood',
@@ -98,7 +100,7 @@ const galleryItems = [
   {
     id: 12,
     category: 'framed',
-    src: '/images/autumn-flame.jpg',
+    src: sitePhoto('autumn-flame.jpg'),
     alt: 'Orange, yellow and white pinecone flowers on black burlap in a black frame',
     title: 'Autumn Flame',
     desc: 'Orange, yellow & white pinecone flowers on black burlap with bark and a twisted ribbon',
@@ -106,10 +108,26 @@ const galleryItems = [
   {
     id: 13,
     category: 'framed',
-    src: '/images/old-enough-to-know-better.jpg',
+    src: sitePhoto('old-enough-to-know-better.jpg'),
     alt: 'Blue, purple and black pinecone flowers with twig stems on a purple background',
     title: 'Old Enough to Know Better',
     desc: 'Blue, purple & black pinecone flowers with twig stems, a burlap bow and a handwritten quote',
+  },
+  {
+    id: 14,
+    category: 'framed',
+    src: sitePhoto('autumn-umbrella.jpg'),
+    alt: 'Orange and yellow pinecone flowers spilling from a burlap umbrella on painted burlap in a light wood frame',
+    title: 'Autumn Umbrella',
+    desc: 'Orange, gold & burgundy pinecone flowers spilling from a burlap umbrella with a rope handle',
+  },
+  {
+    id: 15,
+    category: 'framed',
+    src: sitePhoto('blush-and-silver-bouquet.jpg'),
+    alt: 'Pink and silver pinecone flowers in a bark vase with a rope bow on blue burlap in a gold frame',
+    title: 'Blush & Silver Bouquet',
+    desc: 'Coral-pink & silver pinecone flowers in a bark vase tied with a rope bow, on blue-grey burlap',
   },
 ];
 

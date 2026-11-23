@@ -11,8 +11,10 @@ function check({ data, error }) {
   return data;
 }
 
-// Photos shipped with the site (/images/...) aren't in Storage, so only their row is removed.
-const isStoragePath = (path) => !path.startsWith('/') && !/^https?:\/\//.test(path);
+// Only a piece's own uploads are deleted from Storage. Site photos (site/..., also used by the
+// About and custom-order sections) and old /images/... paths only lose their row.
+const isStoragePath = (path) =>
+  !path.startsWith('/') && !path.startsWith('site/') && !/^https?:\/\//.test(path);
 
 // ─── Session ────────────────────────────────────────────────────────────────
 

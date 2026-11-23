@@ -1,11 +1,13 @@
+import { sitePhoto } from '../../lib/supabase';
+
 // The choices offered in each step. Labels come from translations (custom.type.<id>, …).
 // Photos are real pieces, so visitors see what each choice looks like.
 
 export const TYPES = [
-  { id: 'framed', photo: '/images/3f3e9e01-5da5-4831-82cb-fb66bc2fde16.jpg' },
-  { id: 'wreath', photo: '/images/35b5e998-89de-49dc-b5fa-99f6db6087a2.jpg' },
-  { id: 'standing', photo: '/images/55c63e88-56b0-4707-9818-39cee1322435.jpg' },
-  { id: 'heart', photo: '/images/c5834be9-52f5-488d-a119-52988bcf3511.jpg' },
+  { id: 'framed', photo: sitePhoto('3f3e9e01-5da5-4831-82cb-fb66bc2fde16.jpg') },
+  { id: 'wreath', photo: sitePhoto('35b5e998-89de-49dc-b5fa-99f6db6087a2.jpg') },
+  { id: 'standing', photo: sitePhoto('55c63e88-56b0-4707-9818-39cee1322435.jpg') },
+  { id: 'heart', photo: sitePhoto('c5834be9-52f5-488d-a119-52988bcf3511.jpg') },
 ];
 
 // Colour themes, shown as a small cluster of soft colour circles (no photos), plus

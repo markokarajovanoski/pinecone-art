@@ -11,3 +11,9 @@ export function getSupabase() {
   client ??= import('@supabase/supabase-js').then(({ createClient }) => createClient(url, key));
   return client;
 }
+
+// Photos used by the site itself (About, custom-order choices, sample gallery) live in the
+// piece-photos bucket under site/ (uploaded by `npm run upload-photos`). Without Supabase,
+// the copies in public/images are used.
+export const sitePhoto = (file) =>
+  isSupabaseConfigured ? `${url}/storage/v1/object/public/piece-photos/site/${file}` : `/images/${file}`;

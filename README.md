@@ -22,10 +22,20 @@ so it works before the database exists.
    your buyers.
 2. In **SQL Editor**, run `supabase/migrations/20261030120000_init.sql`, then
    `supabase/seed.sql`. This creates the tables, the access rules and the photo bucket, and
-   loads the 12 pieces that are on the site today.
+   loads the pieces that are on the site today.
 3. Copy `.env.example` to `.env.local` and fill in the project URL and the **publishable** key
    from **Project Settings → API Keys**. Restart `npm run dev`.
-4. In **Table Editor**:
+4. Upload the site's photos from `public/images` to Storage. Copy the **service_role** key
+   from the same page (it bypasses every access rule, so never commit it or put it in a
+   `VITE_` variable) and run:
+
+   ```powershell
+   $env:SUPABASE_SERVICE_ROLE_KEY = '<service_role key>'; npm run upload-photos
+   ```
+
+   It's safe to run again. It also lists any photo the database points to that isn't in
+   `public/images`.
+5. In **Table Editor**:
    - `settings`: set `currency` (an ISO code like `EUR` or `MKD`) and `instagram_url` /
      `facebook_url` with your real profile links.
    - `pieces`: add prices (whole numbers; empty shows "Price on request") and set `status`:
@@ -59,10 +69,17 @@ Create their login in **Authentication → Users**, copy their user id, then run
 insert into public.admins (user_id, name) values ('<user id>', 'Mum');
 ```
 
-## Link previews
+## Photos
 
-Once the site has a domain, set `VITE_SITE_URL` in `.env` (for example
-`https://pineconeart.com`) so Facebook, Viber and WhatsApp previews get an absolute image URL.
+All photos are served from the public `piece-photos` Storage bucket, so every computer and
+the hosted site see the same ones:
+
+- `site/...`: the original photos, also used by the About section, the custom-order choices
+  and the link-preview image. Deleting a piece's photo in the admin panel never removes
+  these files.
+- `<piece-slug>/...`: photos added in the admin panel (the way to add new photos).
+
+`public/images` is only used when Supabase isn't connected (the sample gallery).
 
 ## Good to know
 

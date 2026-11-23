@@ -1,4 +1,5 @@
 import { useLanguage } from '../../i18n/languageContext';
+import { sitePhoto } from '../../lib/supabase';
 import './style.css';
 
 export default function AboutView() {
@@ -26,12 +27,12 @@ export default function AboutView() {
         <div className="about-visual reveal">
           <div className="about-image-grid">
             <img
-              src="/images/3f3e9e01-5da5-4831-82cb-fb66bc2fde16.jpg"
+              src={sitePhoto('3f3e9e01-5da5-4831-82cb-fb66bc2fde16.jpg')}
               alt={t('about.img1')}
               className="about-img about-img-1"
             />
             <img
-              src="/images/35b5e998-89de-49dc-b5fa-99f6db6087a2.jpg"
+              src={sitePhoto('35b5e998-89de-49dc-b5fa-99f6db6087a2.jpg')}
               alt={t('about.img2')}
               className="about-img about-img-2"
             />
