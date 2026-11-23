@@ -34,21 +34,23 @@ export default function ContactView({ instagramUrl, instagramHandle, facebookUrl
             </div>
           </a>
 
-          <a
-            href={facebookUrl}
-            className="social-card"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className="social-icon facebook-icon">
-              <FacebookIcon />
-            </div>
-            <div className="social-info">
-              <span className="social-platform">Facebook</span>
-              <span className="social-handle">Pinecone Art</span>
-              <span className="social-cta">{t('contact.facebookCta')}</span>
-            </div>
-          </a>
+          {facebookUrl && (
+            <a
+              href={facebookUrl}
+              className="social-card"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="social-icon facebook-icon">
+                <FacebookIcon />
+              </div>
+              <div className="social-info">
+                <span className="social-platform">Facebook</span>
+                <span className="social-handle">Pinecone Art</span>
+                <span className="social-cta">{t('contact.facebookCta')}</span>
+              </div>
+            </a>
+          )}
         </div>
       </div>
     </section>

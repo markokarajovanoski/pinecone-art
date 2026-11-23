@@ -20,7 +20,7 @@ so it works before the database exists.
 
 1. Create a free project at [supabase.com](https://supabase.com). Pick the region closest to
    your buyers.
-2. In **SQL Editor**, run `supabase/migrations/20261030120000_init.sql`, then
+2. In **SQL Editor**, run the files in `supabase/migrations` in date order, then
    `supabase/seed.sql`. This creates the tables, the access rules and the photo bucket, and
    loads the pieces that are on the site today.
 3. Copy `.env.example` to `.env.local` and fill in the project URL and the **publishable** key
@@ -81,7 +81,24 @@ the hosted site see the same ones:
 
 `public/images` is only used when Supabase isn't connected (the sample gallery).
 
-## Good to know
+## Hosting
 
-Free Supabase projects pause after 7 days without any requests. A small scheduled job that
-pings the API keeps the project awake; set it up together with hosting.
+Any static host works: connect the GitHub repository and use
+
+| Setting | Value |
+| --- | --- |
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| Environment variables | `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY` (same as `.env.local`) |
+
+The admin panel at `/admin` is served by `index.html`: `public/_redirects` handles this on
+Netlify and Cloudflare Pages, `vercel.json` on Vercel.
+
+## Keeping Supabase awake
+
+Free Supabase projects pause after 7 days without any requests, and the site then shows no
+pieces. `.github/workflows/keep-supabase-awake.yml` reads the catalog every 3 days. It needs
+two repository variables (GitHub → **Settings → Secrets and variables → Actions →
+Variables**): `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`, the same values as `.env.local`.
+Run it once by hand from the **Actions** tab to check it works. GitHub turns scheduled jobs
+off after 60 days without commits; the Actions tab shows a button to turn it back on.

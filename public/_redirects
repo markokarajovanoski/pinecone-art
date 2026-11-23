@@ -1,0 +1,3 @@
+# Netlify and Cloudflare Pages: the admin panel is part of the same page (see src/main.jsx).
+/admin    /index.html  200
+/admin/*  /index.html  200

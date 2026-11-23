@@ -8,7 +8,7 @@ export const NAV_SECTIONS = ['home', 'gallery', 'about', 'contact'];
  * @property {string} activeSection  id of the section currently in view
  * @property {string[]} sections  section ids to link to
  * @property {string} instagramUrl
- * @property {string} facebookUrl
+ * @property {string | null} facebookUrl  null hides the Facebook link
  * @property {() => void} onToggleMenu
  * @property {() => void} onNavigate  a menu link was clicked
  */

@@ -16,7 +16,7 @@ const galleryItems = [
     alt: 'Pink and silver pinecone flowers in a bark vase with a rope bow on blue burlap in a gold frame',
     title: 'Blush & Silver Bouquet',
     desc: 'Coral-pink & silver pinecone flowers in a bark vase tied with a rope bow, on blue-grey burlap',
-  },,
+  },
   {
     id: 0,
     category: 'framed',
@@ -128,7 +128,7 @@ const galleryItems = [
     alt: 'Blue, purple and black pinecone flowers with twig stems on a purple background',
     title: 'Old Enough to Know Better',
     desc: 'Blue, purple & black pinecone flowers with twig stems, a burlap bow and a handwritten quote',
-  }
+  },
 ];
 
 export { galleryItems };

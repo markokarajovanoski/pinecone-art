@@ -21,9 +21,11 @@ export default function NavbarView({
       <a href={instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
         <InstagramIcon size={20} />
       </a>
-      <a href={facebookUrl} target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
-        <FacebookIcon size={20} />
-      </a>
+      {facebookUrl && (
+        <a href={facebookUrl} target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+          <FacebookIcon size={20} />
+        </a>
+      )}
     </>
   );
 
