@@ -1,3 +1,5 @@
 # Netlify and Cloudflare Pages: the admin panel is part of the same page (see src/main.jsx).
-/admin    /index.html  200
-/admin/*  /index.html  200
+# Rewrite to "/" rather than "/index.html": Cloudflare Pages redirects /index.html to /,
+# which would send /admin to the home page.
+/admin    /  200
+/admin/*  /  200
