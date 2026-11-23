@@ -79,7 +79,8 @@
 
 @media (max-width: 968px) {
   .about-container {
-    grid-template-columns: 1fr;
+    /* minmax(0, 1fr): the column may shrink below its content's width (plain 1fr can't). */
+    grid-template-columns: minmax(0, 1fr);
     gap: 3rem;
   }
 
@@ -91,7 +92,8 @@
 
 @media (max-width: 768px) {
   .about-stats {
-    gap: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
   }
 }
 

@@ -138,22 +138,45 @@
 }
 
 @media (max-width: 768px) {
+  .nav-container {
+    padding: 0 1rem;
+    gap: 0.5rem;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  .logo-icon {
+    font-size: 1.5rem;
+  }
+
+  /* The menu slides in from the right. While closed it is moved out with transform and
+     hidden, so it never makes the page wider (right: -100% did, on some phones). */
   .nav-links {
     position: fixed;
     top: 0;
-    right: -100%;
-    width: 280px;
+    right: 0;
+    width: min(280px, 85vw);
     height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;
     background: var(--color-white);
     flex-direction: column;
     padding: 5rem 2rem 2rem;
     gap: 1.5rem;
     box-shadow: var(--shadow-lg);
-    transition: right var(--transition);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform var(--transition), visibility 0s linear 0.3s;
   }
 
   .nav-links.open {
-    right: 0;
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform var(--transition), visibility 0s;
   }
 
   .nav-links a {
@@ -177,6 +200,16 @@
     border-top: 1px solid var(--color-cream);
   }
 
+  /* The open menu is white: the close (X) and the flags must stay visible above it. */
+  .nav-toggle.active span {
+    background: var(--color-text);
+  }
+
+  .navbar .lang-switch {
+    position: relative;
+    z-index: 1001;
+  }
+
   .nav-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
@@ -187,5 +220,17 @@
 
   .nav-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
+/* Small phones (e.g. 320–360px wide) */
+@media (max-width: 380px) {
+  .logo {
+    font-size: 1.15rem;
+    gap: 0.35rem;
+  }
+
+  .logo-icon {
+    font-size: 1.3rem;
   }
 }
