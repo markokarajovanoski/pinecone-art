@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "upload-photos": "node --env-file=.env.local scripts/upload-site-photos.mjs"
+    "upload-photos": "node --env-file=.env.local scripts/upload-site-photos.mjs",
+    "deploy": "vite build && wrangler pages deploy dist --project-name pinecone-art --branch main"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",
@@ -23,6 +24,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "wrangler": "^4.166.0"
   }
 }
