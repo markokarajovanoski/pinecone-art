@@ -113,3 +113,21 @@
   color: var(--color-text);
   border: 2px solid #ccc;
 }
+
+/* "or message us" divider between the order form and the chat buttons */
+.sheet-or {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+.sheet-or::before,
+.sheet-or::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e6ded5;
+}

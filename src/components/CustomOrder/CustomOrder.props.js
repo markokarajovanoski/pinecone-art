@@ -64,7 +64,6 @@ export const STEP_COUNT = 5;
  * @property {string} message  words to write on the piece
  * @property {string} deadline  yyyy-mm-dd, or ''
  * @property {string} note
- * @property {string} name
  */
 
 /**
@@ -78,6 +77,7 @@ export const STEP_COUNT = 5;
  * @property {(id: string) => void} onToggleColor
  * @property {(size: { from: number }) => string} sizePrice  "from 1.500 ден."
  * @property {{ label: string, value: string }[]} summary
+ * @property {string} orderDetails  the summary as text, saved with the order as "what to make"
  * @property {{ id: string, href: string, label: string, external: boolean }[]} channels
  * @property {(field: string, value: string) => void} onChoose  pick and go to the next step
  * @property {(field: string, value: string) => void} onFieldChange

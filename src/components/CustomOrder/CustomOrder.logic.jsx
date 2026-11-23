@@ -26,7 +26,6 @@ export default function CustomOrder({ fromPiece, onClose }) {
     message: '',
     deadline: '',
     note: '',
-    name: '',
   });
 
   // Escape closes; keys stay out of the lightbox underneath. The page behind doesn't scroll.
@@ -96,6 +95,7 @@ export default function CustomOrder({ fromPiece, onClose }) {
         t('custom.from', { price: priceLabel({ price: size.from, status: 'available' }, 'MKD', t, lang) })
       }
       summary={summary}
+      orderDetails={summary.map(({ label, value }) => `${label}: ${value}`).join('\n')}
       channels={channels}
       onChoose={(field, value) => {
         setField(field, value);

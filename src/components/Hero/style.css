@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #2c1810 0%, #4a2c2a 30%, #3d2b3a 60%, #1a2a2a 100%);
+  background: linear-gradient(135deg, #140b22 0%, #2d1a4a 35%, #3b2158 65%, #1e1230 100%);
   overflow: hidden;
 }
 
@@ -63,8 +63,8 @@
 .hero-btn {
   display: inline-block;
   padding: 1rem 2.5rem;
-  background: var(--color-accent);
-  color: var(--color-white);
+  background: #9a86b0;
+  color: #2a1a42;
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.05em;
@@ -73,9 +73,9 @@
 }
 
 .hero-btn:hover {
-  background: var(--color-accent-dark);
+  background: #ab99bf;
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(181, 131, 141, 0.3);
+  box-shadow: 0 10px 30px rgba(154, 134, 176, 0.3);
 }
 
 .hero-buttons {
@@ -86,15 +86,15 @@
 }
 
 .hero-btn-outline {
-  background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.85);
+  background: #9a86b0;
+  border: 2px solid #9a86b0;
   font-family: inherit;
   cursor: pointer;
 }
 
 .hero-btn-outline:hover {
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: none;
+  background: #ab99bf;
+  border-color: #ab99bf;
 }
 
 .hero-scroll {

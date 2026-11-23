@@ -1,4 +1,5 @@
 import { useLanguage } from '../../i18n/languageContext';
+import OrderRequestForm from '../OrderRequestForm';
 import { COLORS, MAX_COLORS, OCCASIONS, SIZES, STEP_COUNT, TYPES } from './CustomOrder.props';
 import './style.css';
 
@@ -15,6 +16,7 @@ export default function CustomOrderView({
   onToggleColor,
   sizePrice,
   summary,
+  orderDetails,
   channels,
   onChoose,
   onFieldChange,
@@ -192,10 +194,8 @@ export default function CustomOrderView({
                 </div>
               ))}
             </dl>
-            <label className="custom-field">
-              <span>{t('custom.name')}</span>
-              <input type="text" autoComplete="name" maxLength={60} {...field('name')} />
-            </label>
+            <OrderRequestForm piece={fromPiece} details={orderDetails} />
+            <p className="sheet-or"><span>{t('orderForm.orChat')}</span></p>
             <p className="custom-tip">{t('custom.sendHint')}</p>
             <div className="custom-send">
               {channels.map((channel) => (

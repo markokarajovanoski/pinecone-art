@@ -1,0 +1,123 @@
+.order-request {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.order-request-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.order-request-field input,
+.order-request-field textarea {
+  font: inherit;
+  font-weight: 400;
+  font-size: 1.05rem;
+  min-height: 52px;
+  padding: 0.7rem 0.9rem;
+  border: 2px solid #ddd4ca;
+  border-radius: 12px;
+  background: var(--color-white);
+  color: var(--color-text);
+}
+
+.order-request-field input:focus,
+.order-request-field textarea:focus {
+  outline: 3px solid var(--color-accent-light);
+  border-color: var(--color-accent);
+}
+
+.order-request-field input[aria-invalid='true'] {
+  border-color: #c0392b;
+  background: #fff8f7;
+}
+
+.order-request-hint {
+  font-weight: 400;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  color: var(--color-text-light);
+}
+
+.order-request-field-error {
+  font-weight: 400;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  color: #a12626;
+}
+
+.order-request-field-error::before {
+  content: '⚠ ';
+}
+
+/* Off-screen, so people never see it */
+.order-request-trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.order-request-error {
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background: #fdecec;
+  color: #a12626;
+  line-height: 1.5;
+}
+
+.order-request-submit {
+  min-height: 56px;
+  border-radius: 14px;
+  background: var(--color-accent-dark);
+  color: var(--color-white);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.order-request-submit:disabled {
+  opacity: 0.6;
+}
+
+.order-request-pay {
+  text-align: center;
+  color: var(--color-text-light);
+  line-height: 1.5;
+}
+
+.order-request-sent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding: 1.5rem 1rem;
+  border-radius: 16px;
+  background: #eef6f0;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.order-request-sent strong {
+  font-size: 1.3rem;
+}
+
+.order-request-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #2e7d4a;
+  color: var(--color-white);
+  font-size: 1.6rem;
+  font-weight: 700;
+}

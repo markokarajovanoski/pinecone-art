@@ -30,7 +30,8 @@ export default function OrderCardView({
 
       <p className="admin-order-name">{order.customer_name}</p>
       <a href={`tel:${order.phone.replace(/[^\d+]/g, '')}`} className="admin-link">{order.phone}</a>
-      <p className={place ? '' : 'admin-muted'}>{place || t('admin.orders.noAddress')}</p>
+      {place && <p>{place}</p>}
+      {!order.address && <p className="admin-muted">{t('admin.orders.noAddress')}</p>}
 
       {order.items.length > 0 && (
         <ul className="admin-order-items">

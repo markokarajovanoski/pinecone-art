@@ -16,20 +16,24 @@
     "subtitle": "Handcrafted with Love",
     "title1": "Nature Transformed",
     "title2": "Into Art",
-    "description": "Each piece is uniquely crafted from pinecones, transforming nature's gifts into stunning floral arrangements and decorative art.",
+    "description": "Every piece is handmade to your order — in the colours and shape you choose.",
     "button": "Explore the Collection",
     "scroll": "Scroll"
   },
   "gallery": {
     "subtitle": "The Collection",
     "title": "Pinecone Masterpieces",
-    "description": "Browse through our handcrafted pinecone art pieces — each one a unique expression of natural beauty.",
+    "description": "These are examples of earlier pieces. We make each new one the way you want it — in the colours, size and shape you imagine.",
     "all": "All Pieces",
     "loading": "Loading the collection…",
     "error": "The collection couldn't be loaded right now. Please refresh the page in a moment.",
     "view": "View",
     "viewPiece": "View {title}",
-    "askSimilar": "Ask for one like it"
+    "askSimilar": "Ask for one like it",
+    "idea": {
+      "title": "Your own idea?",
+      "text": "We will make it for you."
+    }
   },
   "category": {
     "framed": "Framed Art",
@@ -53,6 +57,33 @@
     "message": "Hello! I’m interested in “{title}”{price}. Is it still available?",
     "messageSimilar": "Hello! I love “{title}”. Could you make one like it for me?",
     "noChannels": "Ordering by message isn’t set up yet. Please reach us through"
+  },
+  "orderForm": {
+    "name": "Full name",
+    "phone": "Phone",
+    "city": "City",
+    "address": "Delivery address (optional)",
+    "addressHint": "Not needed now — we can sort it out when we call you.",
+    "quantity": "How many",
+    "note": "Note (optional)",
+    "submit": "Send order",
+    "sending": "Sending…",
+    "payNote": "You pay on delivery. We will call you to confirm the order.",
+    "sentTitle": "Thank you!",
+    "sentText": "We have your order. We will call you soon to confirm it.",
+    "checkFields": "Please check the fields marked in red above.",
+    "errors": {
+      "name": "Please write your full name.",
+      "phoneMissing": "Please write a phone number so we can call you.",
+      "phone": "This number looks incomplete. Example: 070 123 456",
+      "city": "Please write the city you live in.",
+      "address": "Please write the street and number.",
+      "quantity": "Enter a number from 1 to {max}."
+    },
+    "invalid": "Something in the details is not right. Please check them and try again.",
+    "tooMany": "You have already sent a few orders. Please wait a little or message us.",
+    "failed": "The order did not send. Please try again or message us.",
+    "orChat": "or message us"
   },
   "channel": {
     "order": {
@@ -193,7 +224,7 @@
     "orders": {
       "add": "+ New order",
       "empty": "No orders here.",
-      "noAddress": "No address yet",
+      "noAddress": "No address — ask for it on the phone",
       "done": "Delivered ✓",
       "filter": {
         "active": "Active",
@@ -301,7 +332,6 @@
       "christmas": "Christmas / New Year",
       "other": "Something else"
     },
-    "name": "Your name",
     "summary": {
       "type": "Type",
       "colors": "Colours",
@@ -309,8 +339,7 @@
       "occasion": "Occasion",
       "message": "Words on it",
       "deadline": "Needed by",
-      "note": "Note",
-      "name": "Name"
+      "note": "Note"
     },
     "message": {
       "intro": "Hello! I’d like to order a piece of my own:",

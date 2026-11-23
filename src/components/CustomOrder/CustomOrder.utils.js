@@ -30,7 +30,6 @@ export function buildSummary(choices, fromPiece, t) {
   add('message', choices.message.trim() && `„${choices.message.trim()}“`);
   add('deadline', choices.deadline && formatDate(choices.deadline));
   add('note', choices.note.trim());
-  add('name', choices.name.trim());
   return rows;
 }
 

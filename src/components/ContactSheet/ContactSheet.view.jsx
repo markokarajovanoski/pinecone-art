@@ -1,4 +1,5 @@
 import { useLanguage } from '../../i18n/languageContext';
+import OrderRequestForm from '../OrderRequestForm';
 import './style.css';
 
 // Bottom sheet for ordering a piece (mode "order") or sending it to a friend (mode "share").
@@ -31,7 +32,13 @@ export default function ContactSheetView({
           </div>
         </div>
 
-        {mode === 'order' && <p className="sheet-hint">{t('order.hint')}</p>}
+        {mode === 'order' && (
+          <>
+            <OrderRequestForm piece={piece} showQuantity />
+            <p className="sheet-or"><span>{t('orderForm.orChat')}</span></p>
+            <p className="sheet-hint">{t('order.hint')}</p>
+          </>
+        )}
 
         <div className="sheet-buttons">
           {channels.map((channel) => (

@@ -1,5 +1,6 @@
 import { useLanguage } from '../../i18n/languageContext';
 import ContactSheet from '../ContactSheet';
+import IdeaCard from '../IdeaCard';
 import Lightbox from '../Lightbox';
 import PieceCard from '../PieceCard';
 import './style.css';
@@ -58,6 +59,7 @@ export default function GalleryView({
             onShare={onShare}
           />
         ))}
+        {pieces.length > 0 && <IdeaCard />}
       </div>
 
       {lightboxIndex !== null && (

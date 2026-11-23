@@ -6,6 +6,7 @@
 }
 
 .order-btn,
+.custom-like-btn,
 .share-btn {
   flex: 1 1 8rem;
   min-height: 48px;
@@ -16,17 +17,33 @@
   transition: background var(--transition), color var(--transition);
 }
 
-.order-btn {
+/* .custom-like-btn is "I'd like this, in my colours": opens the custom-order flow from this piece */
+.order-btn,
+.custom-like-btn {
   background: var(--color-accent-dark);
   color: var(--color-white);
 }
 
+/* The colours label is much longer than "Order", so it gets more of the row */
+.order-btn {
+  flex: 1 1 6rem;
+  padding-inline: 0.75rem;
+}
+
+.custom-like-btn {
+  flex: 2 1 11rem;
+  padding-inline: 0.75rem;
+}
+
 .order-btn:hover,
-.order-btn:focus-visible {
+.order-btn:focus-visible,
+.custom-like-btn:hover,
+.custom-like-btn:focus-visible {
   background: #6f4450;
 }
 
 .share-btn {
+  flex-basis: 100%;
   border: 2px solid var(--color-accent-dark);
   color: var(--color-accent-dark);
 }
@@ -34,19 +51,4 @@
 .share-btn:hover,
 .share-btn:focus-visible {
   background: var(--color-accent-light);
-}
-
-/* "I'd like this, in my colours" — opens the custom-order flow from this piece */
-.custom-like-btn {
-  flex: 1 1 100%;
-  min-height: 44px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--color-teal);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.lightbox-actions .custom-like-btn {
-  color: var(--color-accent-light);
 }

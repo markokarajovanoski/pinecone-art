@@ -13,11 +13,11 @@ export default function PieceActionsView({ piece, onOrder, onShare, className })
       <button type="button" className="order-btn" onClick={() => onOrder(piece)}>
         {t(ORDER_LABELS[piece.status] ?? 'order.button')}
       </button>
-      <button type="button" className="share-btn" onClick={() => onShare(piece)}>
-        {t('share.button')}
-      </button>
       <button type="button" className="custom-like-btn" onClick={() => openCustomOrder(piece)}>
         {t('custom.likeThis')}
+      </button>
+      <button type="button" className="share-btn" onClick={() => onShare(piece)}>
+        {t('share.button')}
       </button>
     </div>
   );
