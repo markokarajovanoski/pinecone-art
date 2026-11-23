@@ -91,6 +91,19 @@ Any static host works: connect the GitHub repository and use
 | Output directory | `dist` |
 | Environment variables | `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY` (same as `.env.local`) |
 
+### Cloudflare Pages (current host)
+
+The live site is the Cloudflare Pages project `pinecone-art` at
+<https://pinecone-art.pages.dev>. It is uploaded from this computer, not built from GitHub,
+so pushing to `main` does not change the live site. To publish the current code:
+
+```powershell
+npm run deploy
+```
+
+This builds with the Supabase values in `.env.local` and uploads `dist`. The first time on a
+computer, run `npx wrangler login` and click **Allow** in the browser.
+
 The admin panel at `/admin` is served by `index.html`: `public/_redirects` handles this on
 Netlify and Cloudflare Pages, `vercel.json` on Vercel.
 
