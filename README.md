@@ -107,6 +107,28 @@ computer, run `npx wrangler login` and click **Allow** in the browser.
 The admin panel at `/admin` is served by `index.html`: `public/_redirects` handles this on
 Netlify and Cloudflare Pages, `vercel.json` on Vercel.
 
+## New order emails
+
+Every new order (from the site's form or `place_order()`) is emailed to the shop by the
+`notify-new-order` Edge Function, sent from the shop's Gmail.
+
+1. On the Gmail account (pineconeartvk@gmail.com), turn on 2-Step Verification, then create
+   an app password at <https://myaccount.google.com/apppasswords>.
+2. In Supabase → **Edge Functions → Secrets**, add:
+   - `GMAIL_USER` = `pineconeartvk@gmail.com`
+   - `GMAIL_APP_PASSWORD` = the 16-letter app password
+   - `NOTIFY_TO` (optional) = where to send the emails; defaults to `GMAIL_USER`
+3. Deploy the function (first time: `npx supabase login`):
+
+   ```powershell
+   npm run deploy:functions
+   ```
+
+4. Run `supabase/migrations/20261123120000_new_order_email.sql` in **SQL Editor**. From then
+   on, every new order sends one email. Orders that already existed are not emailed.
+
+If an email doesn't arrive, check **Edge Functions → notify-new-order → Logs**.
+
 ## Keeping Supabase awake
 
 Free Supabase projects pause after 7 days without any requests, and the site then shows no
