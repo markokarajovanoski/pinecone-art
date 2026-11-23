@@ -2,6 +2,22 @@ import { sitePhoto } from '../lib/supabase';
 
 const galleryItems = [
   {
+    id: 14,
+    category: 'framed',
+    src: sitePhoto('autumn-umbrella.jpg'),
+    alt: 'Orange and yellow pinecone flowers spilling from a burlap umbrella on painted burlap in a light wood frame',
+    title: 'Autumn Umbrella',
+    desc: 'Orange, gold & burgundy pinecone flowers spilling from a burlap umbrella with a rope handle',
+  },
+  {
+    id: 15,
+    category: 'framed',
+    src: sitePhoto('blush-and-silver-bouquet.jpg'),
+    alt: 'Pink and silver pinecone flowers in a bark vase with a rope bow on blue burlap in a gold frame',
+    title: 'Blush & Silver Bouquet',
+    desc: 'Coral-pink & silver pinecone flowers in a bark vase tied with a rope bow, on blue-grey burlap',
+  },,
+  {
     id: 0,
     category: 'framed',
     src: sitePhoto('9a7c7ba2-d0a3-4d14-8e37-0f348e18a804.jpg'),
@@ -112,23 +128,7 @@ const galleryItems = [
     alt: 'Blue, purple and black pinecone flowers with twig stems on a purple background',
     title: 'Old Enough to Know Better',
     desc: 'Blue, purple & black pinecone flowers with twig stems, a burlap bow and a handwritten quote',
-  },
-  {
-    id: 14,
-    category: 'framed',
-    src: sitePhoto('autumn-umbrella.jpg'),
-    alt: 'Orange and yellow pinecone flowers spilling from a burlap umbrella on painted burlap in a light wood frame',
-    title: 'Autumn Umbrella',
-    desc: 'Orange, gold & burgundy pinecone flowers spilling from a burlap umbrella with a rope handle',
-  },
-  {
-    id: 15,
-    category: 'framed',
-    src: sitePhoto('blush-and-silver-bouquet.jpg'),
-    alt: 'Pink and silver pinecone flowers in a bark vase with a rope bow on blue burlap in a gold frame',
-    title: 'Blush & Silver Bouquet',
-    desc: 'Coral-pink & silver pinecone flowers in a bark vase tied with a rope bow, on blue-grey burlap',
-  },
+  }
 ];
 
 export { galleryItems };
