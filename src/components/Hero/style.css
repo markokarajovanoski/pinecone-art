@@ -120,8 +120,65 @@
 }
 
 @media (max-width: 768px) {
+  /* Leave room for the fixed top bar above and the scroll hint below, and use the
+     phone's real visible height (svh) so browser bars don't cut the hero off. */
+  .hero {
+    min-height: 100svh;
+    padding: 5.5rem 0 6.5rem;
+  }
+
+  .hero-content {
+    padding: 0 1.25rem;
+    width: 100%;
+  }
+
+  .hero-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    margin-bottom: 1rem;
+  }
+
   .hero-title {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 9vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .hero-btn {
+    padding: 0.9rem 1.5rem;
+    text-align: center;
+  }
+
+  .hero-scroll {
+    bottom: 1.5rem;
+  }
+
+  .scroll-line {
+    height: 28px;
+  }
+}
+
+/* Short screens (small phones, or a phone held sideways): no scroll hint. */
+@media (max-height: 640px) {
+  .hero {
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-scroll {
+    display: none;
   }
 }
 
