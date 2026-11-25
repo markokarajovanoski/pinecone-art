@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useCatalog } from '../../context/catalogContext';
 import { useLanguage } from '../../i18n/languageContext';
-import { priceLabel } from '../../lib/catalog';
+import { priceLabel, SHOW_PRICES } from '../../lib/catalog';
 import { orderChannels } from '../../lib/contact';
 import CustomOrderView from './CustomOrder.view';
 import { MAX_COLORS, PALETTES, STEP_COUNT } from './CustomOrder.props';
@@ -92,7 +92,9 @@ export default function CustomOrder({ fromPiece, onClose }) {
       onPickPalette={pickPalette}
       onToggleColor={toggleColor}
       sizePrice={(size) =>
-        t('custom.from', { price: priceLabel({ price: size.from, status: 'available' }, 'MKD', t, lang) })
+        SHOW_PRICES
+          ? t('custom.from', { price: priceLabel({ price: size.from, status: 'available' }, 'MKD', t, lang) })
+          : t('price.onRequest')
       }
       summary={summary}
       orderDetails={summary.map(({ label, value }) => `${label}: ${value}`).join('\n')}

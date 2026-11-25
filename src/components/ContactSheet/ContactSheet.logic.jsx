@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useCatalog } from '../../context/catalogContext';
 import { useLanguage } from '../../i18n/languageContext';
-import { priceLabel } from '../../lib/catalog';
+import { priceLabel, SHOW_PRICES } from '../../lib/catalog';
 import { orderChannels, pieceUrl, shareChannels } from '../../lib/contact';
 import ContactSheetView from './ContactSheet.view';
 
@@ -24,7 +24,7 @@ export default function ContactSheet({ mode, piece, onClose }) {
   let title;
   let channels;
   if (mode === 'order') {
-    const price = piece.price != null && !isSold ? ` (${priceText})` : '';
+    const price = SHOW_PRICES && piece.price != null && !isSold ? ` (${priceText})` : '';
     const messageKey = isSold ? 'order.messageSimilar' : 'order.message';
     const message = `${t(messageKey, { title: piece.title, price })}\n${url}`;
     title = t(isSold ? 'order.titleSimilar' : 'order.title');

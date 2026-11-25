@@ -102,9 +102,13 @@ const DISPLAY_CURRENCY = { mk: 'MKD', en: 'EUR' };
 // "2.460 ден." — written out by hand because many browsers lack Macedonian number formats.
 const formatDenars = (amount) => `${String(amount).replace(/\B(?=(\d{3})+(?!\d))/g, '.')} ден.`;
 
+// While false, the site shows "Цена по договор" / "Price on request" instead of any
+// amount. Prices stay saved in the admin panel; set this to true to show them again.
+export const SHOW_PRICES = false;
+
 export function priceLabel(piece, currency, t, lang) {
   if (piece.status === 'sold') return t('price.sold');
-  if (piece.price == null) return t('price.onRequest');
+  if (!SHOW_PRICES || piece.price == null) return t('price.onRequest');
 
   let amount = piece.price;
   let shown = currency;
